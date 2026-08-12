@@ -1,0 +1,1971 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>FM Practice</title>
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA2NCA2NCI+CjxyZWN0IHdpZHRoPSI2NCIgaGVpZ2h0PSI2NCIgcng9IjEyIiBmaWxsPSIjRkFGQUY3Ii8+Cjx0ZXh0IHg9IjMyIiB5PSI0MSIgZm9udC1mYW1pbHk9IkFyaWFsLCBIZWx2ZXRpY2EsIHNhbnMtc2VyaWYiIGZvbnQtd2VpZ2h0PSI3MDAiIGZvbnQtc2l6ZT0iMjAiIGZpbGw9IiMxODU3QTQiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGxldHRlci1zcGFjaW5nPSIwLjUiPlNPQTwvdGV4dD4KPC9zdmc+">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,wght@0,500;0,600;1,500&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+
+/* =====================================================================
+   CONFIG -- edit everything in this block to run your own practice site.
+   ===================================================================== */
+</style>
+<script>
+window.PRACTICE_CONFIG = {
+  brandEyebrow: "SOA Practice Questions",
+  examTitle: "Exam FM",
+  examSubtitle: "Practice by Chapter",
+  instructorName: "Raymond Goh",
+  tutoringUrl: "https://soa-tutoring.vercel.app/",
+
+  /* Shared login. No attempt limit or tracking -- students can log in
+     and practice as many times as they like. */
+  accessId: "allthebest",
+  accessPassword: "allthebest",
+
+  /* Chapters are grouped under the five official 2026-06 Exam FM syllabus
+     topics. Each chapter with "available: true" has a real question set;
+     others render as a "coming soon" card. Add new chapters by appending
+     to a group's "chapters" array -- the menu and practice screens pick
+     them up automatically. */
+  syllabusGroups: [
+    {
+      topic: "Time Value of Money",
+      weight: "5\u201315%",
+      chapters: [
+        {
+          id: "a-more",
+          code: "A",
+          title: "Interest Rates, Present Value & Accumulation",
+          description: "More questions for this topic are on the way.",
+          available: false
+        }
+      ]
+    },
+    {
+      topic: "Annuities",
+      weight: "20\u201330%",
+      chapters: [
+        {
+          id: "b-more",
+          code: "B",
+          title: "Level, Increasing & Deferred Annuities",
+          description: "More questions for this topic are on the way.",
+          available: false
+        }
+      ]
+    },
+    {
+      topic: "Loans",
+      weight: "15\u201325%",
+      chapters: [
+        {
+          id: "c-more",
+          code: "C",
+          title: "Amortization & Sinking Funds",
+          description: "More questions for this topic are on the way.",
+          available: false
+        }
+      ]
+    },
+    {
+      topic: "Bonds",
+      weight: "15\u201325%",
+      chapters: [
+        {
+          id: "e1",
+          code: "E",
+          title: "Bonds and Other Securities",
+          description: "Bond pricing, premium and discount, amortization schedules, callable bonds, and Makeham\u2019s formula.",
+          available: true,
+          questions: [
+    { tier: "EASY", source: "E.1.1 Types of Securities",
+      text: "Which of the following correctly orders debt securities from shortest to longest maturity?",
+      options: ["Note, Bond, Bill", "Bill, Note, Bond", "Bond, Bill, Note", "Bill, Bond, Note", "Note, Bill, Bond"], correct: 1,
+      explanation: {
+        given: [ "Debt securities under comparison: Bill, Note, Bond" ],
+        find: "Which ordering correctly ranks these debt securities from shortest to longest maturity.",
+        steps: [
+          { label: "Recall the standard maturity classification for each instrument.",
+            lines: [ "Bill:  maturity \u2264 1 year", "Note:  maturity 1\u201310 years", "Bond:  maturity > 10 years" ] }
+        ],
+        answer: "Answer: B \u2014 Bill, Note, Bond."
+      } },
+
+    { tier: "EASY", source: "E.1.1 Types of Securities",
+      text: "Which instrument combines characteristics of both debt and equity?",
+      options: ["Commercial Paper", "Certificate of Deposit", "Mutual Fund", "Bond", "Preferred Stock"], correct: 4,
+      explanation: {
+        given: [ "Options: Commercial Paper, Certificate of Deposit, Mutual Fund, Bond, Preferred Stock" ],
+        find: "Which instrument combines characteristics of both debt and equity.",
+        steps: [
+          { label: "Compare the debt-like and equity-like features of each option.",
+            lines: [ "Preferred stock pays fixed, coupon-like dividends \u2014 that's debt-like.", "But those dividends are paid at the company's discretion, and the stock has no maturity date \u2014 that's equity-like." ] }
+        ],
+        answer: "Answer: E \u2014 Preferred Stock."
+      } },
+
+    { tier: "EASY", source: "E.1.2 Price of a Bond",
+      text: "A 1000 par value 20-year bond has 5% semiannual coupons. If the yield rate is 6% convertible semiannually, what is the bond's price?",
+      options: ["823.15", "861.10", "884.43", "902.78", "940.20"], correct: 2,
+      explanation: {
+        given: [ "Face value F = 1000", "Term: 20 years, semiannual coupons", "Coupon rate: 5% convertible semiannually", "Yield rate: 6% convertible semiannually" ],
+        find: "The price of the bond.",
+        steps: [
+          { label: "Convert to a per-period basis.",
+            lines: [ "Semiannual coupon = 1000(0.05/2) = 25", "i = 6%/2 = 3% per period", "n = 20\u00d72 = 40 periods" ] },
+          { label: "Apply the bond price formula.",
+            lines: [ "P = 25\u00b7a\u2084\u2080| at 3% + 1000v\u2074\u2070 at 3%", "= 25(23.115) + 1000(0.30656)" ] },
+          { label: "Compute the result.",
+            lines: [ "P \u2248 884.43" ] }
+        ],
+        answer: "Answer: C \u2014 884.43."
+      } },
+
+    { tier: "EASY", source: "E.1.3 Premium and Discount",
+      text: "A ten-year bond with semiannual coupons is redeemable for 1200. Coupon rate (of face) is 8% annual, payable semiannually; modified coupon rate (of C) is 6% annual, payable semiannually. Yield is 8% convertible semiannually. Is this bond bought at a premium or discount?",
+      options: ["Premium", "Discount", "Par", "Cannot be determined", "Zero-coupon"], correct: 1,
+      explanation: {
+        given: [ "10-year bond, semiannual coupons, redeemable for 1200", "Coupon rate (of face) = 8% annual, payable semiannually", "Modified coupon rate (of C) = 6% annual, payable semiannually", "Yield = 8% convertible semiannually" ],
+        find: "Whether the bond is bought at a premium or a discount.",
+        steps: [
+          { label: "Find the modified coupon rate g (per period, based on redemption value C) and the yield rate i (per period).",
+            lines: [ "g = 6%/2 = 3% per period", "i = 8%/2 = 4% per period" ] },
+          { label: "Compare g to i.",
+            lines: [ "g < i  \u2192  the bond is bought at a DISCOUNT" ] }
+        ],
+        answer: "Answer: B \u2014 Discount."
+      } },
+
+    { tier: "EASY", source: "E.1.4 Bond Amortization",
+      text: "A bond is purchased at a premium of 250. Which of the following must be true about its book value schedule?",
+      options: ["Book value increases over time", "Book value decreases over time, ending at C", "Book value stays constant", "Book value is unrelated to premium", "Book value increases, then decreases"], correct: 1,
+      explanation: {
+        given: [ "Bond purchased at a premium of 250" ],
+        find: "What must be true about its book value schedule.",
+        steps: [
+          { label: "Recall how a premium bond's book value evolves over time.",
+            lines: [ "Premium bonds start with BV = P  (above C, the redemption value)", "...and write DOWN each period until BV = C exactly at maturity" ] }
+        ],
+        answer: "Answer: B \u2014 Book value decreases over time, ending at C."
+      } },
+
+    { tier: "MEDIUM", source: "E.1.2 / E.1.3 Bond Pricing",
+      text: "A 1000 par value 10-year bond pays 6% semiannual coupons and is redeemable at 1050. It is bought to yield 8% convertible semiannually. Find the amount of premium or discount.",
+      options: ["187.4 discount", "163.1 discount", "142.6 discount", "121.9 premium", "98.2 discount"], correct: 1,
+      explanation: {
+        given: [ "Face value F = 1000, 10-year bond, semiannual coupons", "Coupon rate: 6% convertible semiannually", "Redeemable at C = 1050", "Yield: 8% convertible semiannually" ],
+        find: "The amount of premium or discount.",
+        steps: [
+          { label: "Find the coupon amount (Fr) and the redemption-based interest requirement (Ci) per period.",
+            lines: [ "Fr = 1000(0.06/2) = 30", "Ci = 1050(0.08/2) = 42" ] },
+          { label: "Compare Fr to Ci to determine premium vs. discount, then apply the discount formula.",
+            lines: [ "Fr < Ci  \u2192  discount bond", "n = 20 periods, i = 4% per period", "Discount = (Ci\u2212Fr)\u00b7a\u2082\u2080| at 4%", "= 12(13.5903)" ] },
+          { label: "Compute the result.",
+            lines: [ "Discount \u2248 163.08" ] }
+        ],
+        answer: "Answer: B \u2014 163.1 discount."
+      } },
+
+    { tier: "MEDIUM", source: "E.1.4 Bond Amortization",
+      text: "A 1000 par value bond with 8% annual coupons is bought at a premium to yield 6% annually. The book value at the end of year 3 is 1080. Find the interest earned in year 4 (I\u2084).",
+      options: ["60.00", "64.80", "70.20", "80.00", "92.15"], correct: 1,
+      explanation: {
+        given: [ "Face value F = 1000, annual coupons at 8%", "Bought at a premium to yield 6% annually", "Book value at end of year 3: BV\u2083 = 1080" ],
+        find: "The interest earned in year 4 (I\u2084).",
+        steps: [
+          { label: "Recall that interest earned in any period equals the PRIOR period's book value times the yield rate.",
+            lines: [ "I\u2084 = BV\u2083 \u00d7 i" ] },
+          { label: "Substitute.",
+            lines: [ "I\u2084 = 1080 \u00d7 0.06", "= 64.80" ] }
+        ],
+        answer: "Answer: B \u2014 64.80."
+      } },
+
+    { tier: "MEDIUM", source: "E.1.5 Callable Bonds",
+      text: "A bond pays semiannual coupons at a rate higher than its yield rate, and is callable at par on several dates before maturity. To guarantee the stated yield, an investor should price the bond assuming it is called at the:",
+      options: ["Earliest possible call date", "Latest possible call date", "Midpoint of the call window", "Maturity date only", "It doesn't matter \u2014 price is the same either way"], correct: 0,
+      explanation: {
+        given: [ "Bond pays semiannual coupons at a rate HIGHER than its yield rate", "Callable at par on several dates before maturity" ],
+        find: "Which call date an investor should assume to guarantee the stated yield.",
+        steps: [
+          { label: "Determine whether this is a premium or discount bond.",
+            lines: [ "Coupon rate > yield rate  \u2192  Fr > Ci  \u2192  PREMIUM bond" ] },
+          { label: "Apply the golden rule for callable premium bonds.",
+            lines: [ "For a premium bond, the worst case for the investor is the EARLIEST possible call date" ] }
+        ],
+        answer: "Answer: A \u2014 Earliest possible call date."
+      } },
+
+    { tier: "MEDIUM", source: "E.1.2 Makeham's Formula",
+      text: "A 1000 par bond has semiannual coupons at 9% and is redeemable at 1100 in 22.5 years (n=45), yielding 8% convertible semiannually. The PV of the redemption amount is 190. Find the price using Makeham's formula.",
+      options: ["1055.20", "1088.60", "1102.30", "1120.72", "1145.05"], correct: 3,
+      explanation: {
+        given: [ "Face value F = 1000, semiannual coupons at 9%", "Redeemable at C = 1100 in 22.5 years (n = 45 periods)", "Yield: 8% convertible semiannually (i = 4% per period)", "PV of the redemption amount, K = 190" ],
+        find: "The price of the bond, using Makeham's formula.",
+        steps: [
+          { label: "Find the modified coupon ratio g = Fr/C.",
+            lines: [ "Fr = 1000(0.09/2) = 45", "g = Fr/C = 45/1100" ] },
+          { label: "Apply Makeham's formula.",
+            lines: [ "P = K + (g/i)(C\u2212K)" ] },
+          { label: "Substitute and compute.",
+            lines: [ "P = 190 + (45/1100)/0.04 \u00d7 (1100\u2212190)", "P \u2248 1120.72" ] }
+        ],
+        answer: "Answer: D \u2014 1120.72."
+      } },
+
+    { tier: "MEDIUM", source: "E.1.4 Bond Amortization",
+      text: "A bond is purchased at a discount. The write-up in period 3 is 40. If i = 5% per period, find the write-up in period 6.",
+      options: ["40.00", "44.10", "46.31", "48.62", "51.05"], correct: 2,
+      explanation: {
+        given: [ "Bond purchased at a discount", "Write-up in period 3 = 40", "i = 5% per period" ],
+        find: "The write-up in period 6.",
+        steps: [
+          { label: "Recall that bond write-ups (and write-downs) grow geometrically at the yield rate.",
+            lines: [ "P\u209c\u208a\u2096 = P\u209c(1+i)\u1d4f" ] },
+          { label: "Apply with t=3, moving forward 3 more periods to reach period 6.",
+            lines: [ "P\u2086 = P\u2083(1.05)\u00b3", "= 40(1.157625)" ] },
+          { label: "Compute the result.",
+            lines: [ "P\u2086 \u2248 46.31" ] }
+        ],
+        answer: "Answer: C \u2014 46.31."
+      } },
+
+    { tier: "HARD", source: "E.1.2 Reinvestment",
+      text: "An insurance company owns a 1000 par value 10% bond with semiannual coupons, maturing at par in 10 years. It sells the bond (yield 7% convertible semiannually) and uses the proceeds to buy a par-value 6% bond with semiannual coupons, maturing in 8 years at the same yield. Find the par value of the new bond.",
+      options: ["1120", "1191", "1290", "1355", "1410"], correct: 2,
+      explanation: {
+        given: [ "Old bond: F = 1000, 10% coupon rate, semiannual coupons, matures at par in 10 years", "Sold at yield 7% convertible semiannually", "Proceeds buy a new par-value 6% bond, semiannual coupons, matures in 8 years at the same yield" ],
+        find: "The par value of the new bond.",
+        steps: [
+          { label: "Find the sale price of the old bond at 7% convertible semiannually (3.5%/period, n=20).",
+            lines: [ "Sale price = 50\u00b7a\u2082\u2080| at 3.5% + 1000v\u00b2\u2070 at 3.5%", "\u2248 1213.19" ] },
+          { label: "Set that price equal to the price of the new 8-year (n=16) bond, and solve for its face value F.",
+            lines: [ "1213.19 = F(0.03)\u00b7a\u2081\u2086| at 3.5% + Fv\u00b9\u2076 at 3.5%", "= F(0.939529)" ] },
+          { label: "Solve for F.",
+            lines: [ "F \u2248 1291" ] }
+        ],
+        answer: "Answer: C \u2014 1290."
+      } },
+
+    { tier: "HARD", source: "E.1.4 Split Yield Amortization",
+      text: "A 30-year 10,000 bond pays 3% annual coupons and matures at par. It is purchased to yield 5% for the first 15 years and 4% thereafter. Find the accumulation of discount for year 8.",
+      options: ["78", "83", "88", "93", "98"], correct: 4,
+      explanation: {
+        given: [ "Face value F = 10,000, 30-year bond, 3% annual coupons, matures at par", "Yield: 5% for the first 15 years, then 4% thereafter" ],
+        find: "The accumulation of discount for year 8.",
+        steps: [
+          { label: "Find the book value at the segment boundary, t=15, using the SECOND segment's yield (4%) for the remaining 15 years.",
+            lines: [ "BV\u2081\u2085 = 300\u00b7a\u2081\u2085| at 4% + 10000v\u00b9\u2075 at 4%", "\u2248 8888.16" ] },
+          { label: "Discount that value back to t=7 and t=8 using the FIRST segment's yield (5%), since both years fall before the boundary.",
+            lines: [ "BV\u2087 = 300\u00b7a\u2088| at 5% + 8888.16\u00b7v\u2078 at 5%  \u2248 7954.82", "BV\u2088 = 300\u00b7a\u2087| at 5% + 8888.16\u00b7v\u2077 at 5%  \u2248 8052.56" ] },
+          { label: "The write-up in year 8 is the change in book value from t=7 to t=8.",
+            lines: [ "Write-up = BV\u2088 \u2212 BV\u2087", "\u2248 98" ] }
+        ],
+        answer: "Answer: E \u2014 98."
+      } },
+
+    { tier: "HARD", source: "E.1.5 Callable Bonds \u2014 Multi-Segment",
+      text: "A 1000 par 30-year bond has 7% annual coupons paid semiannually. After 10 years of call protection, it's callable after any of the 20th\u201359th coupons for 1250 (coupons 20\u201339) or 1125 (coupons 40\u201359); otherwise redeemed at 1000. To guarantee a nominal yield of 5% convertible semiannually, at which coupon should you assume redemption?",
+      options: ["20th", "40th", "59th", "60th (maturity)", "Any \u2014 price is identical"], correct: 1,
+      explanation: {
+        given: [ "Face value F = 1000, 30-year bond, 7% annual coupons paid semiannually", "10 years of call protection, then callable after any of the 20th\u201359th coupons", "Call price: 1250 for coupons 20\u201339, 1125 for coupons 40\u201359", "Otherwise redeemed at 1000 (maturity, 60th coupon)", "Target nominal yield: 5% convertible semiannually" ],
+        find: "At which coupon to assume redemption, to guarantee the stated yield.",
+        steps: [
+          { label: "Price the bond at each candidate 'boundary' redemption point, since the worst case for a callable bond always occurs at a boundary between call-price regions or at maturity.",
+            lines: [ "At t=20 (C=1250): price \u2248 1308.46", "At t=40 (C=1125): price \u2248 1297.58", "At t=60 (C=1000, maturity): price \u2248 1309.09" ] },
+          { label: "The investor must assume whichever redemption date gives the LOWEST price, since that's the worst case that still guarantees the target yield.",
+            lines: [ "Minimum price occurs at t=40 \u2014 this is the binding (worst-case) redemption point" ] }
+        ],
+        answer: "Answer: B \u2014 40th coupon."
+      } },
+
+    { tier: "HARD", source: "E.1.2 Growing Coupons",
+      text: "A 1000 par value 10-year bond with semiannual coupons redeemable at 1100 is purchased at 1135 to yield 12% convertible semiannually. The first coupon is X; each subsequent coupon is 4% greater than the preceding one. Find X.",
+      options: ["40", "42", "44", "48", "50"], correct: 4,
+      explanation: {
+        given: [ "Face value F = 1000, 10-year bond, semiannual coupons", "Redeemable at 1100", "Purchased at 1135", "Yield: 12% convertible semiannually (6%/period), n = 20", "First coupon = X, each subsequent coupon 4% greater than the one before" ],
+        find: "The first coupon amount, X.",
+        steps: [
+          { label: "Recognize this as a geometrically growing coupon annuity with common ratio r = growth/discount.",
+            lines: [ "r = 1.04/1.06 = 0.981132" ] },
+          { label: "Value the growing coupon stream and the redemption separately.",
+            lines: [ "PV(coupons) = X\u00b7v\u00b7(1\u2212r\u00b2\u2070)/(1\u2212r) \u2248 15.840X", "PV(redemption) = 1100v\u00b2\u2070 at 6% \u2248 342.99" ] },
+          { label: "Set the sum equal to the purchase price and solve for X.",
+            lines: [ "1135 = 15.840X + 342.99", "X \u2248 50" ] }
+        ],
+        answer: "Answer: E \u2014 50."
+      } },
+
+    { tier: "HARD", source: "E.1.4 Two-Bond System",
+      text: "Two n-year 1000 par bonds have 13% annual coupons, yield 6.5% annually. The 2n-year bond costs 250 more than the n-year bond. Find the price of the n-year bond.",
+      options: ["1200", "1300", "1400", "1500", "1600"], correct: 3,
+      explanation: {
+        given: [ "Two n-year bonds, face value F = 1000 each, 13% annual coupons", "Yield: 6.5% annually", "The 2n-year bond costs 250 more than the n-year bond" ],
+        find: "The price of the n-year bond.",
+        steps: [
+          { label: "Find Fr\u2212Ci, the per-period premium/discount driver.",
+            lines: [ "Fr\u2212Ci = 130\u221265 = 65" ] },
+          { label: "Express the price DIFFERENCE between the 2n-year and n-year bonds in terms of v\u207f, using the premium/discount formula.",
+            lines: [ "P(2n)\u2212P(n) = 65[a\u2082\u2099| \u2212 a\u2099|] = 65\u00b7v\u207f\u00b7a\u2099| = 250" ] },
+          { label: "Solve the resulting equation for v\u207f.",
+            lines: [ "v\u207f(1\u2212v\u207f)/0.065 = 3.846", "v\u207f(1\u2212v\u207f) = 0.25", "(v\u207f\u22120.5)\u00b2 = 0  \u2192  v\u207f = 0.5" ] },
+          { label: "Use v\u207f to find a\u2099|, then the price of the n-year bond.",
+            lines: [ "a\u2099| = (1\u2212v\u207f)/0.065 = 7.6923", "P(n) = 1000 + 65\u00b7a\u2099|", "= 1000 + 65(7.6923) = 1500" ] }
+        ],
+        answer: "Answer: D \u2014 1500."
+      } }
+          ]
+        }
+      ]
+    },
+    {
+      topic: "General Cash Flows, Portfolios & ALM",
+      weight: "20\u201330%",
+      chapters: [
+        {
+          id: "g1g2",
+          code: "G.1\u2013G.2",
+          title: "Duration and Convexity",
+          description: "Macaulay and Modified duration, Macaulay and ordinary convexity, portfolio weighting, and price approximations.",
+          available: true,
+          questions: [
+    { tier: "FOUNDATIONAL", source: "G.1 Direction of a Price Change",
+      text: "You hold a bond currently priced at $950. The market's annual effective yield rises from 5% to 5.5%. Without doing any calculation, will the bond's new price be above or below $950?",
+      options: ["Above $950", "Below $950", "Exactly $950", "Cannot be determined without more information", "Depends on the bond's convexity"], correct: 1,
+      explanation: {
+        given: [ "A bond currently priced at $950", "Yield rises from 5% to 5.5%" ],
+        find: "Whether the new price is above or below $950 \u2014 no calculation required.",
+        steps: [
+          { label: "Recall what price actually is.",
+            lines: [ "Price is the present value of fixed future cash flows, discounted at the yield rate" ] },
+          { label: "Think through what a higher yield does to each discount factor.",
+            lines: [ "A higher yield means every discount factor v = 1/(1+i) shrinks" ] },
+          { label: "Connect smaller discount factors to price.",
+            lines: [ "Smaller discount factors \u21d2 smaller present value \u21d2 lower price" ] }
+        ],
+        answer: "Answer: B \u2014 The new price is BELOW $950. Price and yield always move in opposite directions."
+      } },
+
+    { tier: "FOUNDATIONAL", source: "G.1 Duration of a Single Cash Flow",
+      text: "A single cash flow of $10,000 is due in 7 years. At an annual effective interest rate of 6%, find its Macaulay duration and its Modified duration.",
+      options: [ "MacD=7.000, ModD=7.420", "MacD=6.604, ModD=7.000", "MacD=7.000, ModD=6.604", "MacD=7.000, ModD=6.667", "MacD=7.420, ModD=7.000" ], correct: 2,
+      explanation: {
+        given: [ "Single cash flow of $10,000 at t = 7", "i = 6% annual effective" ],
+        find: "Macaulay duration (MacD) and Modified duration (ModD).",
+        steps: [
+          { label: "With a single cash flow, there's nothing to average \u2014 Macaulay duration is just its own time.",
+            lines: [ "MacD = t = 7 years" ] },
+          { label: "Convert to Modified duration by dividing by (1+i).",
+            lines: [ "ModD = MacD / (1 + i) = 7 / 1.06" ] }
+        ],
+        answer: "Answer: C \u2014 MacD = 7.000 years, ModD = 6.604 years."
+      } },
+
+    { tier: "FOUNDATIONAL", source: "G.1 Par Bond Shortcut",
+      text: "A 15-year bond is priced at par (coupon rate = yield rate) with an annual effective yield of 5%. Using the par-bond shortcut \u2014 without computing a single cash flow's present value \u2014 find its Macaulay duration in years.",
+      options: ["9.899", "10.380", "10.899", "11.899", "15.000"], correct: 2,
+      explanation: {
+        given: [ "15-year bond priced at par", "Annual effective yield j = 5%, annual coupons (n = 15 periods = 15 years)" ],
+        find: "Macaulay duration using the par-bond shortcut, D = \u00e4\u2099|\u2c7c.",
+        steps: [
+          { label: "Apply the par-bond shortcut formula.",
+            lines: [ "D = \u00e4\u2081\u2085|5% = (1 \u2212 v\u00b9\u2075)/d, where d = i/(1+i) = 0.05/1.05 = 0.047619" ] },
+          { label: "Compute v\u00b9\u2075.",
+            lines: [ "v\u00b9\u2075 = 1.05\u207b\u00b9\u2075 = 0.48102" ] },
+          { label: "Substitute and compute.",
+            lines: [ "D = (1 \u2212 0.48102)/0.047619" ] }
+        ],
+        answer: "Answer: C \u2014 Macaulay duration \u2248 10.899 years."
+      } },
+
+    { tier: "FOUNDATIONAL", source: "G.1 Duration of a Two-Payment Liability",
+      text: "A liability requires payments of $2,000 at the end of year 1 and $3,000 at the end of year 2. At an annual effective interest rate of 7%, calculate the Macaulay duration of this liability.",
+      options: ["1.400", "1.500", "1.584", "1.667", "1.750"], correct: 2,
+      explanation: {
+        given: [ "CF\u2081 = 2,000 at t = 1", "CF\u2082 = 3,000 at t = 2", "i = 7%" ],
+        find: "Macaulay duration of the liability.",
+        steps: [
+          { label: "Discount each cash flow to find its present value.",
+            lines: [ "PV\u2081 = 2,000/1.07 = 1,869.16", "PV\u2082 = 3,000/1.07\u00b2 = 2,620.32" ] },
+          { label: "Sum for the total price.",
+            lines: [ "Price = 1,869.16 + 2,620.32 = 4,489.48" ] },
+          { label: "Weight each time by its present value, then divide by the price.",
+            lines: [ "Weighted sum = 1(1,869.16) + 2(2,620.32) = 7,109.80", "D = 7,109.80 / 4,489.48" ] }
+        ],
+        answer: "Answer: C \u2014 Macaulay duration \u2248 1.584 years."
+      } },
+
+    { tier: "FOUNDATIONAL", source: "G.2 Zero-Coupon Bond: Duration & Convexity Building Blocks",
+      text: "A zero-coupon bond matures in 12 years. At an annual effective yield of 6%, find (a) its Macaulay convexity (in years\u00b2), and (b) its ordinary Convexity, P''(i)/P(i).",
+      options: [ "MacConv=144.00, Convexity=144.00", "MacConv=144.00, Convexity=138.84", "MacConv=132.00, Convexity=124.63", "MacConv=144.00, Convexity=128.16", "MacConv=156.00, Convexity=150.00" ], correct: 1,
+      explanation: {
+        given: [ "Zero-coupon bond, n = 12 years", "i = 6%, v = 1/1.06" ],
+        find: "(a) Macaulay convexity, and (b) Convexity = P''(i)/P(i).",
+        steps: [
+          { label: "For a single cash flow, Macaulay convexity is simply t\u00b2, independent of the interest rate.",
+            lines: [ "Macaulay convexity = 12\u00b2 = 144 years\u00b2" ] },
+          { label: "Convert to ordinary Convexity by multiplying by v\u00b2\u00b7(n+1)/... using the single-CF convexity relation.",
+            lines: [ "Convexity = n(n+1)v\u00b2 = 12(13)(1/1.06)\u00b2 = 156 \u00d7 0.890000" ] },
+          { label: "Cross-check using the general conversion formula.",
+            lines: [ "Convexity = v\u00b2(MacConv + MacD) = 0.890000 \u00d7 (144 + 12) = 0.890000 \u00d7 156" ] }
+        ],
+        answer: "Answer: B \u2014 Macaulay convexity = 144.00 years\u00b2; Convexity = 138.84."
+      } },
+
+    { tier: "STANDARD", source: "G.1 Macaulay Duration of a Coupon Bond",
+      text: "A 10-year, 1000 par value bond pays 8% annual coupons. Calculate its Macaulay duration at a yield rate of 7%.",
+      options: ["6.847", "7.135", "7.347", "7.653", "8.000"], correct: 2,
+      explanation: {
+        given: [ "10-year, 1000 par bond, 8% annual coupons", "i = 7%" ],
+        find: "Macaulay duration.",
+        steps: [
+          { label: "Find the bond's price.",
+            lines: [ "Price = 80\u00b7a\u2081\u2080|7% + 1000v\u00b9\u2070", "= 80(7.02359) + 1000(0.50835) = 561.89 + 508.35 = 1,070.24" ] },
+          { label: "Compute the increasing-annuity factor needed for the weighted sum of coupon times.",
+            lines: [ "(Ia)\u2081\u2080|7% = (\u00e4\u2081\u2080 \u2212 10v\u00b9\u2070)/i", "= (7.51524 \u2212 5.08349)/0.07 = 34.739" ] },
+          { label: "Build the weighted sum, then divide by the price.",
+            lines: [ "Weighted sum = 80(34.739) + 10(1000)(0.50835) = 2,779.14 + 5,083.49 = 7,862.63", "D = 7,862.63 / 1,070.24" ] }
+        ],
+        answer: "Answer: C \u2014 Macaulay duration \u2248 7.347 years."
+      } },
+
+    { tier: "STANDARD", source: "G.1 From Macaulay to Modified Duration",
+      text: "Using the bond from the previous question (Macaulay duration = 7.3467 years at i = 7%), find its Modified duration.",
+      options: ["6.604", "6.687", "6.866", "7.135", "7.347"], correct: 2,
+      explanation: {
+        given: [ "MacD = 7.3467 years", "i = 7%" ],
+        find: "Modified duration (ModD).",
+        steps: [
+          { label: "Apply the standard conversion.",
+            lines: [ "ModD = MacD / (1 + i)", "= 7.3467 / 1.07" ] }
+        ],
+        answer: "Answer: C \u2014 Modified duration \u2248 6.866 years."
+      } },
+
+    { tier: "STANDARD", source: "G.1 Duration of a Three-Bond Portfolio",
+      text: "A portfolio holds three bonds: Bond A \u2014 price $5,000, duration 3.2 years. Bond B \u2014 price $8,000, duration 6.5 years. Bond C \u2014 price $3,000, duration 1.0 year. Find the portfolio's Macaulay duration.",
+      options: ["3.567", "4.200", "4.438", "4.700", "5.567"], correct: 2,
+      explanation: {
+        given: [ "Bond A: P=5,000, D=3.2", "Bond B: P=8,000, D=6.5", "Bond C: P=3,000, D=1.0" ],
+        find: "Portfolio duration D = \u03a3(P\u1d62D\u1d62)/\u03a3P\u1d62.",
+        steps: [
+          { label: "Weight each bond's duration by its price.",
+            lines: [ "\u03a3(P\u1d62D\u1d62) = 5,000(3.2) + 8,000(6.5) + 3,000(1.0)", "= 16,000 + 52,000 + 3,000 = 71,000" ] },
+          { label: "Sum the total portfolio value.",
+            lines: [ "\u03a3P\u1d62 = 5,000 + 8,000 + 3,000 = 16,000" ] },
+          { label: "Divide.",
+            lines: [ "D = 71,000 / 16,000" ] }
+        ],
+        note: "A simple unweighted average of the three durations, (3.2+6.5+1.0)/3 \u2248 3.567 (option A), ignores that the bonds hold different amounts of money \u2014 duration must always be price-weighted.",
+        answer: "Answer: C \u2014 Portfolio Macaulay duration = 4.4375 years."
+      } },
+
+    { tier: "STANDARD", source: "G.2 Convexity of a Zero-Coupon Bond",
+      text: "Find the Convexity of a 25-year zero-coupon bond at an annual effective yield of 5%.",
+      options: ["525.00", "560.30", "589.57", "625.00", "650.00"], correct: 2,
+      explanation: {
+        given: [ "Zero-coupon bond, n = 25 years", "i = 5%" ],
+        find: "Convexity = n(n+1)v\u00b2.",
+        steps: [
+          { label: "Compute v\u00b2.",
+            lines: [ "v\u00b2 = (1/1.05)\u00b2 = 0.907029" ] },
+          { label: "Apply the formula.",
+            lines: [ "Convexity = 25(26)(0.907029) = 650 \u00d7 0.907029" ] }
+        ],
+        answer: "Answer: C \u2014 Convexity \u2248 589.57."
+      } },
+
+    { tier: "STANDARD", source: "G.2 Level Perpetuity: Duration and Convexity",
+      text: "A level perpetuity-immediate pays $500 at the end of each year, valued at an annual effective yield of 8%. Find its Macaulay duration and its Convexity.",
+      options: [ "D=12.50, Convexity=250.00", "D=13.50, Convexity=312.50", "D=13.50, Convexity=156.25", "D=12.50, Convexity=312.50", "D=13.50, Convexity=250.00" ], correct: 1,
+      explanation: {
+        given: [ "Level perpetuity-immediate; the payment amount is irrelevant to duration/convexity", "i = 8%" ],
+        find: "Macaulay duration D = (1+i)/i, and Convexity = 2/i\u00b2.",
+        steps: [
+          { label: "Apply the level-perpetuity duration formula.",
+            lines: [ "D = (1 + 0.08)/0.08 = 1.08/0.08" ] },
+          { label: "Apply the level-perpetuity convexity formula.",
+            lines: [ "Convexity = 2/(0.08)\u00b2 = 2/0.0064" ] }
+        ],
+        answer: "Answer: B \u2014 Macaulay duration = 13.5 years; Convexity = 312.5."
+      } },
+
+    { tier: "STANDARD", source: "G.2 Growing Perpetuity Duration",
+      text: "A growing perpetuity pays $100 at the end of year 1, with payments growing 3% per year thereafter, valued at an annual effective yield of 7%. Find its Macaulay duration.",
+      options: ["21.40", "24.00", "25.75", "26.75", "30.00"], correct: 3,
+      explanation: {
+        given: [ "Growing perpetuity-immediate, g = 3%", "i = 7%" ],
+        find: "Macaulay duration D = (1+i)/(i\u2212g).",
+        steps: [
+          { label: "Apply the growing-perpetuity duration formula.",
+            lines: [ "D = (1 + 0.07)/(0.07 \u2212 0.03) = 1.07/0.04" ] }
+        ],
+        answer: "Answer: D \u2014 Macaulay duration = 26.75 years."
+      } },
+
+    { tier: "STANDARD", source: "G.2 Linear (Modified) Price Approximation",
+      text: "A bond has Modified duration 5.5 and a price of $98,000 at an annual effective yield of 4.5%. Using the linear approximation, estimate the new price if the yield rises to 5.2%.",
+      options: ["93,610.00", "94,227.00", "94,780.00", "95,120.00", "96,000.00"], correct: 1,
+      explanation: {
+        given: [ "ModD = 5.5", "P\u2080 = 98,000", "i\u2080 = 4.5%, i\u2081 = 5.2%" ],
+        find: "Estimated new price using P\u2081 \u2248 P\u2080(1 \u2212 ModD\u00b7\u0394i).",
+        steps: [
+          { label: "Find the change in yield.",
+            lines: [ "\u0394i = 5.2% \u2212 4.5% = 0.7% = 0.007" ] },
+          { label: "Apply the linear approximation.",
+            lines: [ "\u0394P \u2248 \u2212ModD \u00d7 P\u2080 \u00d7 \u0394i = \u22125.5 \u00d7 98,000 \u00d7 0.007 = \u22123,773.00" ] },
+          { label: "Add the change to the original price.",
+            lines: [ "New Price \u2248 98,000 \u2212 3,773.00" ] }
+        ],
+        answer: "Answer: B \u2014 New price \u2248 $94,227.00."
+      } },
+
+    { tier: "ADVANCED", source: "G.2 Comparing Linear and Power Approximations",
+      text: "A bond has Modified duration 9 at yield 5.8%, and price $250,000. Estimate the price at yield 4.9% using both the linear (Modified) and power (Macaulay) approximations, and find the difference E_MAC \u2212 E_MOD.",
+      options: [ "E_MOD=$270,250.00, E_MAC=$271,186.67", "E_MOD=$271,186.67, E_MAC=$270,250.00", "E_MOD=$270,250.00, E_MAC=$269,500.00", "E_MOD=$268,900.00, E_MAC=$271,186.67", "E_MOD=$270,250.00, E_MAC=$272,000.00" ], correct: 0,
+      explanation: {
+        given: [ "ModD = 9, i\u2080 = 5.8%, P\u2080 = 250,000, i\u2081 = 4.9%" ],
+        find: "E_MOD (linear), E_MAC (power), and their difference.",
+        steps: [
+          { label: "Convert ModD to MacD, and find the yield change.",
+            lines: [ "MacD = ModD \u00d7 (1+i\u2080) = 9 \u00d7 1.058 = 9.522", "\u0394i = 4.9% \u2212 5.8% = \u22120.9%" ] },
+          { label: "Compute the linear (Modified) estimate.",
+            lines: [ "E_MOD = 250,000 \u00d7 (1 \u2212 9\u00d7(\u22120.009)) = 250,000 \u00d7 1.081" ] },
+          { label: "Compute the power (Macaulay) estimate.",
+            lines: [ "E_MAC = 250,000 \u00d7 (1.058/1.049)^9.522 = 250,000 \u00d7 1.08475" ] },
+          { label: "Find the difference between the two estimates.",
+            lines: [ "E_MAC \u2212 E_MOD = 271,186.67 \u2212 270,250.00" ] }
+        ],
+        answer: "Answer: A \u2014 E_MOD = $270,250.00, E_MAC \u2248 $271,186.67 (difference \u2248 $936.67; power estimates a smaller price drop)."
+      } },
+
+    { tier: "ADVANCED", source: "G.2 Passage of Time: Quantifying a Duration Jump",
+      text: "A 5-year bond pays 6% annual coupons on a 1000 par value, priced to yield 4%. Find the jump in Macaulay duration immediately after the 4th coupon is paid.",
+      options: ["0.0000", "0.0278", "0.0556", "0.0833", "0.1111"], correct: 2,
+      explanation: {
+        given: [ "5-year, 1000 par bond, 6% annual coupons, yield 4%", "Examining the instant of the 4th coupon payment" ],
+        find: "D just before minus D just after the 4th coupon.",
+        steps: [
+          { label: "Just BEFORE the 4th coupon, the remaining cash flows are the coupon now and the final coupon+redemption one year later.",
+            lines: [ "CFs: 60 at t=0 (now), 1060 at t=1 (one year later)", "v = 1/1.04, 1060v = 1,019.23" ] },
+          { label: "Compute duration just before the coupon.",
+            lines: [ "D_before = [0(60) + 1(1,019.23)] / [60 + 1,019.23]", "= 1,019.23 / 1,079.23" ] },
+          { label: "Just AFTER the coupon, only the final 1060 remains, one year out.",
+            lines: [ "D_after = 1.000", "Jump = D_after \u2212 D_before = 1.000 \u2212 0.9444" ] }
+        ],
+        answer: "Answer: C \u2014 Duration jumps by \u2248 0.0556 the instant the 4th coupon is paid."
+      } },
+
+    { tier: "ADVANCED", source: "G.2 The Portfolio-Convexity Trap: Par vs. Price Weighting",
+      text: "A portfolio holds Bond X (par 2,000, market price 1,850, convexity 6.2) and Bond Y (par 5,000, market price 4,700, convexity 11.5). A student weights by par value and gets one answer for portfolio convexity. (a) Compute that INCORRECT par-weighted value. (b) Compute the CORRECT price-weighted portfolio convexity.",
+      options: [ "(a) 9.986, (b) 10.003", "(a) 10.003, (b) 9.986", "(a) 9.986, (b) 9.986", "(a) 10.500, (b) 10.003", "(a) 9.986, (b) 10.500" ], correct: 0,
+      explanation: {
+        given: [ "Bond X: par 2,000, market price 1,850, convexity 6.2", "Bond Y: par 5,000, market price 4,700, convexity 11.5" ],
+        find: "(a) Par-weighted (wrong) convexity, and (b) price-weighted (correct) convexity.",
+        steps: [
+          { label: "(a) Compute the incorrect par-weighted average.",
+            lines: [ "(2,000\u00d76.2 + 5,000\u00d711.5) / (2,000+5,000)", "= (12,400+57,500)/7,000" ] },
+          { label: "(b) Compute the correct price-weighted average.",
+            lines: [ "(1,850\u00d76.2 + 4,700\u00d711.5) / (1,850+4,700)", "= (11,470+54,050)/6,550" ] }
+        ],
+        note: "Duration and convexity are always PRICE-weighted (the actual market value invested), never par-weighted \u2014 the two happen to be close here, but they need not be.",
+        answer: "Answer: A \u2014 (a) Incorrect par-weighted \u2248 9.986. (b) Correct price-weighted \u2248 10.003."
+      } },
+
+    { tier: "ADVANCED", source: "G.2 Converting Macaulay Convexity to Convexity",
+      text: "A bond's Macaulay convexity is 60.5 years\u00b2 and its Macaulay duration is 8.2 years, both computed at an annual effective yield of 5%. Find the bond's (ordinary) Convexity, P''(i)/P(i).",
+      options: ["55.20", "58.75", "62.31", "65.90", "68.70"], correct: 2,
+      explanation: {
+        given: [ "Macaulay Convexity = 60.5", "MacD = 8.2", "i = 5%" ],
+        find: "Convexity, using Convexity = v\u00b2\u00d7(Macaulay Convexity + Macaulay Duration).",
+        steps: [
+          { label: "Compute v\u00b2.",
+            lines: [ "v\u00b2 = (1/1.05)\u00b2 = 0.907029" ] },
+          { label: "Apply the conversion formula.",
+            lines: [ "Convexity = 0.907029 \u00d7 (60.5 + 8.2) = 0.907029 \u00d7 68.7" ] }
+        ],
+        answer: "Answer: C \u2014 Convexity \u2248 62.31."
+      } },
+
+    { tier: "ADVANCED", source: "G.2 Frequency Conversion: Periods to Years",
+      text: "A bond has semiannual coupons and a Macaulay duration of 14.6 half-years, at a nominal annual yield of 8% convertible semiannually. Find (a) the Macaulay duration in years, and (b) the Modified duration in years.",
+      options: [ "MacD=7.300, ModD=7.019", "MacD=14.600, ModD=14.038", "MacD=7.300, ModD=7.222", "MacD=7.019, ModD=7.300", "MacD=7.300, ModD=6.827" ], correct: 0,
+      explanation: {
+        given: [ "MacD(periods) = 14.6 half-years", "i\u2075\u00b2\u2075 = 8%, so semiannual rate j = 4%" ],
+        find: "(a) MacD in years, and (b) ModD in years.",
+        steps: [
+          { label: "(a) Convert Macaulay duration from periods to years by dividing by the number of periods per year.",
+            lines: [ "MacD(years) = MacD(periods) / m = 14.6 / 2" ] },
+          { label: "(b) Convert to Modified duration using the PER-PERIOD rate (4%), not the annual effective rate.",
+            lines: [ "ModD(periods) = MacD(periods)/(1+j) = 14.6/1.04" ] },
+          { label: "Convert that result to years.",
+            lines: [ "ModD(years) = 14.0385 / 2" ] }
+        ],
+        note: "Dividing by the annual EFFECTIVE rate (6.09%) instead of the semiannual nominal rate (4%) gives 7.222 (option C) \u2014 close-looking, but wrong, because it mixes two different compounding bases.",
+        answer: "Answer: A \u2014 MacD = 7.300 years; ModD \u2248 7.019 years."
+      } },
+
+    { tier: "CHALLENGE", source: "G.1 Solving for Maturity from Duration",
+      text: "Raj buys an n-year, 1000 par value bond with 5% annual coupons, priced to yield 5% (i.e., priced at par). Macaulay duration is 9.3064 years. Determine n.",
+      options: ["10", "11", "12", "13", "14"], correct: 2,
+      explanation: {
+        given: [ "Par bond, annual coupons, i = 5%", "Macaulay duration = 9.3064 years (= n periods, since coupons are annual)" ],
+        find: "n, using D = \u00e4\u2099|5% = 9.3064.",
+        steps: [
+          { label: "Recall the par-bond duration shortcut.",
+            lines: [ "\u00e4\u2099|i = (1 \u2212 v\u207f)/d, where d = i/(1+i) = 0.05/1.05 = 0.047619" ] },
+          { label: "Substitute and solve for v\u207f.",
+            lines: [ "9.3064 = (1 \u2212 v\u207f)/0.047619", "v\u207f = 1 \u2212 9.3064(0.047619) = 0.55684" ] },
+          { label: "Solve for n by taking logs.",
+            lines: [ "n = ln(0.55684) / ln(1/1.05)", "= (\u22120.58503)/(\u22120.048790)" ] }
+        ],
+        answer: "Answer: C \u2014 n = 12 years."
+      } },
+
+    { tier: "CHALLENGE", source: "G.1 Duration Matching: Funding a Liability with Two Zeros",
+      text: "A company has a single liability of $100,000 due in 6 years. It plans to fund this liability today using a 3-year zero-coupon bond and a 9-year zero-coupon bond, both priced at an annual effective yield of 5%. Find the face value needed in each bond so that (i) the total asset price equals the liability's present value, and (ii) the asset portfolio's Macaulay duration equals 6, matching the liability.",
+      options: [ "Face\u2083\u224843,191.88, Face\u2089\u224857,881.25", "Face\u2083\u224857,881.25, Face\u2089\u224843,191.88", "Face\u2083\u224837,310.77, Face\u2089\u224837,310.77", "Face\u2083\u224850,000.00, Face\u2089\u224850,000.00", "Face\u2083\u224840,000.00, Face\u2089\u224860,000.00" ], correct: 0,
+      explanation: {
+        given: [ "Liability: 100,000 due at t=6", "Assets: 3-yr zero (price P\u2083) and 9-yr zero (price P\u2089)", "i = 5%" ],
+        find: "Face values F\u2083 and F\u2089 such that P\u2083+P\u2089 = PV(liability) and (3P\u2083+9P\u2089)/(P\u2083+P\u2089) = 6.",
+        steps: [
+          { label: "Find the liability's present value.",
+            lines: [ "PV(liability) = 100,000 \u00d7 v\u2076 = 100,000 \u00d7 0.74621" ] },
+          { label: "Set up the duration-match equation using the two present values.",
+            lines: [ "3P\u2083 + 9P\u2089 = 6 \u00d7 74,621.54 = 447,729.24, with P\u2083+P\u2089 = 74,621.54" ] },
+          { label: "Solve the two equations \u2014 the liability's duration sits exactly midway between 3 and 9, so the split is exactly even.",
+            lines: [ "P\u2083 = P\u2089 = 37,310.77" ] },
+          { label: "Grow each present value forward to its face value.",
+            lines: [ "Face\u2083 = P\u2083/v\u00b3 = 37,310.77/0.86384", "Face\u2089 = P\u2089/v\u2079 = 37,310.77/0.64461" ] }
+        ],
+        answer: "Answer: A \u2014 Face\u2083 \u2248 $43,191.88, Face\u2089 \u2248 $57,881.25."
+      } },
+
+    { tier: "CHALLENGE", source: "G.2 Full Second-Order Approximation: Duration + Convexity",
+      text: "A bond has price $500,000 at yield 6%, Modified duration 7.5, and Convexity 90 (both with respect to the annual effective yield). The yield rises to 6.8%. (a) Estimate the new price using ONLY the linear (duration) approximation. (b) Estimate the new price using the full second-order approximation: \u0394P/P \u2248 \u2212ModD\u00b7\u0394i + \u00bd\u00b7Convexity\u00b7(\u0394i)\u00b2. (c) By how much does including convexity change the estimate?",
+      options: [ "(a) $470,000.00 (b) $471,440.00 (c) +$1,440.00", "(a) $470,000.00 (b) $468,560.00 (c) \u2212$1,440.00", "(a) $471,440.00 (b) $470,000.00 (c) \u2212$1,440.00", "(a) $470,000.00 (b) $470,000.00 (c) $0.00", "(a) $468,000.00 (b) $471,440.00 (c) +$3,440.00" ], correct: 0,
+      explanation: {
+        given: [ "P\u2080 = 500,000", "ModD = 7.5, Convexity = 90", "i\u2080 = 6%, i\u2081 = 6.8%" ],
+        find: "(a) Linear-only price. (b) Duration + convexity price. (c) The difference between them.",
+        steps: [
+          { label: "Find the change in yield.",
+            lines: [ "\u0394i = 6.8% \u2212 6% = 0.8% = 0.008" ] },
+          { label: "(a) Apply the linear (duration-only) approximation.",
+            lines: [ "\u0394P/P \u2248 \u22127.5\u00d70.008 = \u22120.06", "New price \u2248 500,000\u00d7(1\u22120.06)" ] },
+          { label: "(b) Add the convexity correction term.",
+            lines: [ "\u0394P/P \u2248 \u22120.06 + \u00bd(90)(0.008)\u00b2 = \u22120.06 + 0.00288 = \u22120.05712", "New price \u2248 500,000\u00d7(1\u22120.05712)" ] },
+          { label: "(c) Subtract to find the convexity's contribution.",
+            lines: [ "Difference = 471,440.00 \u2212 470,000.00" ] }
+        ],
+        note: "Duration alone always UNDERestimates the true price for a rate change, because it's a straight-line approximation to a curve that bends upward \u2014 convexity always adds price back.",
+        answer: "Answer: A \u2014 (a) $470,000.00, (b) $471,440.00, (c) convexity adds back $1,440.00."
+      } }
+          ]
+        },
+        {
+          id: "g3",
+          code: "G.3",
+          title: "Immunization",
+          description: "Redington Immunization, Full Immunization, Dedication, and the mechanics of duration/convexity matching against a liability.",
+          available: true,
+          questions: [
+    { tier: "REFRESHER", source: "G.3 Duration & Convexity Refresher",
+      text: "A portfolio holds $40,000 in Bond X (Macaulay duration 4.2) and $60,000 in Bond Y (Macaulay duration 9.8). Both are valued at an annual effective yield of 5%. Find the portfolio's Macaulay duration and its Modified duration.",
+      options: [ "MacD=7.56, ModD=7.20", "MacD=7.20, ModD=7.56", "MacD=7.56, ModD=7.56", "MacD=8.00, ModD=7.62", "MacD=7.56, ModD=8.00" ], correct: 0,
+      explanation: {
+        given: [ "Bond X: $40,000, Macaulay duration 4.2", "Bond Y: $60,000, Macaulay duration 9.8", "Both valued at i = 5%" ],
+        find: "Portfolio Macaulay duration and Modified duration.",
+        steps: [
+          { label: "Macaulay duration is a price-weighted average across the portfolio.",
+            lines: [ "MacD\u209a = (40,000\u00d74.2 + 60,000\u00d79.8) / 100,000", "= (168,000+588,000)/100,000" ] },
+          { label: "Convert to Modified duration using the shared yield.",
+            lines: [ "ModD\u209a = MacD\u209a / (1+i) = 7.56 / 1.05" ] }
+        ],
+        note: "You get the identical answer whether you convert each bond to Modified duration first and then weight-average, or weight-average the Macaulay durations first and then convert once \u2014 because both bonds share the same yield.",
+        answer: "Answer: A \u2014 MacD = 7.56, ModD = 7.20."
+      } },
+
+    { tier: "REFRESHER", source: "G.3 Duration & Convexity Refresher",
+      text: "A portfolio holds $45,000 in a 2-year bond with an 8% annual coupon (priced at par) and $55,000 in a 6-year zero-coupon bond, both valued at 8%. Find the portfolio's Macaulay convexity (MacC).",
+      options: ["18.20", "19.85", "21.50", "23.10", "25.00"], correct: 2,
+      explanation: {
+        given: [ "2-yr bond: $45,000, 8% annual coupon, priced at par", "6-yr zero-coupon bond: $55,000", "Both valued at i = 8%" ],
+        find: "Portfolio Macaulay convexity.",
+        steps: [
+          { label: "Find the 2-year par bond's Macaulay convexity directly from its cash flows (8 at t=1, 108 at t=2).",
+            lines: [ "MacC\u2082 = (1\u00b2\u00b78v + 2\u00b2\u00b7108v\u00b2) / 100" ] },
+          { label: "For the 6-year zero, Macaulay convexity is simply its own maturity squared.",
+            lines: [ "MacC\u2086 = 6\u00b2 = 36" ] },
+          { label: "Convexity, like duration, is a PRICE-weighted average across the portfolio.",
+            lines: [ "MacC\u209a = 0.45\u00d73.778 + 0.55\u00d736", "= 1.700 + 19.800" ] }
+        ],
+        answer: "Answer: C \u2014 MacC\u209a = 21.50."
+      } },
+
+    { tier: "REFRESHER", source: "G.3 Duration & Convexity Refresher",
+      text: "A 15-year bond has a 5% annual coupon and is priced at par (100) when the yield is 5%. Its Modified duration is 10.3797 and its convexity is c = 140.3194. Using a second-order Taylor approximation, estimate the percentage price change if the yield rises to 6%. Compare your estimate to the exact price change.",
+      options: [ "First-order \u221210.38%, second-order \u22129.68%, exact \u22129.71%", "First-order \u221210.38%, second-order \u221211.08%, exact \u22129.71%", "First-order \u22129.68%, second-order \u221210.38%, exact \u22129.71%", "First-order \u221210.38%, second-order \u22129.68%, exact \u221210.38%", "First-order \u22129.71%, second-order \u22129.68%, exact \u221210.38%" ], correct: 0,
+      explanation: {
+        given: [ "15-year, 5% annual coupon bond, priced at par at 5% yield", "ModD = 10.3797, convexity c = 140.3194", "Yield rises to 6% (\u0394i = 0.01)" ],
+        find: "The first-order estimate, second-order estimate, and the exact price change.",
+        steps: [
+          { label: "Compute the first-order (duration-only) estimate.",
+            lines: [ "\u0394P/P \u2248 \u2212ModD\u00b7\u0394i = \u221210.3797(0.01) = \u221210.38%" ] },
+          { label: "Add the convexity correction for the second-order estimate.",
+            lines: [ "\u0394P/P \u2248 \u221210.380% + 0.5(140.3194)(0.0001)" ] },
+          { label: "Compare to the exact price at 6% (computed directly from the bond price formula).",
+            lines: [ "Exact price at 6% \u2248 $90.288, so the exact change is \u22129.71%" ] }
+        ],
+        note: "The convexity term pulls the estimate from \u221210.38% up to \u22129.68% \u2014 much closer to the true \u22129.71%. Duration alone always OVERSTATES the price drop for a rate increase, because it's a straight-line approximation to a curve that bends upward.",
+        answer: "Answer: A \u2014 First-order \u221210.38%, second-order \u22129.68%, exact \u22129.71%."
+      } },
+
+    { tier: "REFRESHER", source: "G.3 Duration & Convexity Refresher",
+      text: "A growing perpetuity-immediate pays $5 at the end of year 1, with each subsequent payment 2% larger than the last, forever. The annual effective interest rate is 8%. Derive general formulas for the Macaulay duration and Macaulay convexity of this perpetuity, then evaluate both.",
+      options: [ "MacD=18.00, MacC=630.00", "MacD=13.50, MacC=312.50", "MacD=18.00, MacC=324.00", "MacD=25.00, MacC=630.00", "MacD=18.00, MacC=450.00" ], correct: 0,
+      explanation: {
+        given: [ "Growing perpetuity-immediate: first payment $5, growing 2% per year forever", "i = 8%, g = 2%" ],
+        find: "General formulas for MacD and MacC of a growing perpetuity, then their values.",
+        steps: [
+          { label: "Let x = (1+g)/(1+i). The payment weights form a shifted geometric distribution, giving MacD as an expectation.",
+            lines: [ "MacD = E[T] = 1/(1\u2212x) = (1+i)/(i\u2212g)", "= 1.08/0.06" ] },
+          { label: "Similarly, MacC comes from E[T\u00b2] of that same geometric distribution.",
+            lines: [ "MacC = E[T\u00b2] = (1+x)/(1\u2212x)\u00b2 = (1+i)(2+i+g)/(i\u2212g)\u00b2", "= 1.08 \u00d7 2.10 / 0.06\u00b2" ] }
+        ],
+        note: "Sanity check: setting g=0 recovers the familiar flat-perpetuity results MacD=(1+i)/i and MacC=(1+i)(2+i)/i\u00b2.",
+        answer: "Answer: A \u2014 MacD = 18.00, MacC = 630.00."
+      } },
+
+    { tier: "EASY", source: "G.3 Immunization",
+      text: "A liability of $22,000 is due in 6 years, valued at 5.5%. Find PL. If an asset portfolio has a present value of exactly this amount at the same rate, is Condition 1 of Redington Immunization satisfied?",
+      options: [ "PL=$15,955.41, Condition 1 satisfied", "PL=$15,955.41, Condition 1 NOT satisfied", "PL=$16,500.00, Condition 1 satisfied", "PL=$15,955.41, cannot be determined", "PL=$22,000.00, Condition 1 satisfied" ], correct: 0,
+      explanation: {
+        given: [ "Liability: $22,000 due in 6 years", "Valued at 5.5%", "Asset portfolio's present value equals this same amount, at the same rate" ],
+        find: "PL, and whether Condition 1 of Redington Immunization holds.",
+        steps: [
+          { label: "Discount the liability to find its present value.",
+            lines: [ "PL = 22,000 / 1.055\u2076" ] },
+          { label: "Check Condition 1: does PA = PL, both discounted at the same rate?",
+            lines: [ "Since PA is given to equal this same amount, PA = PL \u2014 Condition 1 IS satisfied" ] }
+        ],
+        note: "This is the simplest of the three Redington conditions to check \u2014 just make sure both sides are discounted at the SAME rate before comparing.",
+        answer: "Answer: A \u2014 PL = $15,955.41, Condition 1 satisfied."
+      } },
+
+    { tier: "EASY", source: "G.3 Immunization",
+      text: "A liability of $16,000 is due in 8 years, valued at 6%. An investor can buy 4-year and 12-year zero-coupon bonds, both yielding 6%. Find the amount to invest in each so that Conditions 1 & 2 of Redington Immunization are satisfied.",
+      options: [ "$5,019.30 in each bond", "$10,038.60 in the 4-yr, $0 in the 12-yr", "$3,000.00 in the 4-yr, $7,038.60 in the 12-yr", "$7,038.60 in the 4-yr, $3,000.00 in the 12-yr", "$6,000.00 in the 4-yr, $4,038.60 in the 12-yr" ], correct: 0,
+      explanation: {
+        given: [ "Liability: $16,000 due in 8 years, valued at 6%", "Assets: 4-year and 12-year zero-coupon bonds, both yielding 6%" ],
+        find: "The amount to invest in each bond to satisfy Conditions 1 & 2.",
+        steps: [
+          { label: "Find the liability's present value \u2014 this must equal the total invested (Condition 1).",
+            lines: [ "PL = 16,000/1.06\u2078 = $10,038.60 = PA" ] },
+          { label: "Both assets are zero-coupon bonds, so each one's own Macaulay duration equals its own term. Duration-match (Condition 2) using a weighted average.",
+            lines: [ "4x + 12(1\u2212x) = 8  \u2192  x = 0.5" ] },
+          { label: "Split the total present value evenly, since x = 0.5.",
+            lines: [ "P\u2084 = P\u2081\u2082 = $5,019.30 each" ] }
+        ],
+        note: "The liability's duration sits exactly halfway between 4 and 12, so the split is exactly even \u2014 a good sanity check to recognize.",
+        answer: "Answer: A \u2014 $5,019.30 in each bond."
+      } },
+
+    { tier: "EASY", source: "G.3 Immunization",
+      text: "A portfolio has PA = PL = $30,000 and MacDA = MacDL = 6.5 (Conditions 1 & 2 already satisfied). Its MacCA = 48 and the liability's MacCL = 41. Does Condition 3 hold?",
+      options: [ "Yes, Condition 3 holds (48 > 41)", "No, Condition 3 fails (48 > 41 is not sufficient)", "Cannot be determined without more information", "No, since MacCA and MacCL should be equal, not unequal", "Condition 3 does not apply here since Conditions 1 & 2 already hold" ], correct: 0,
+      explanation: {
+        given: [ "PA = PL = $30,000", "MacDA = MacDL = 6.5 (Conditions 1 & 2 satisfied)", "MacCA = 48, MacCL = 41" ],
+        find: "Whether Condition 3 of Redington Immunization holds.",
+        steps: [
+          { label: "Recall Condition 3's requirement.",
+            lines: [ "Condition 3 requires MacCA > MacCL" ] },
+          { label: "Compare the given values.",
+            lines: [ "48 > 41 \u2014 Condition 3 HOLDS" ] }
+        ],
+        note: "All three conditions are satisfied here, so this portfolio achieves full Redington Immunization.",
+        answer: "Answer: A \u2014 Yes, Condition 3 holds (48 > 41)."
+      } },
+
+    { tier: "EASY", source: "G.3 Immunization",
+      text: "A liability is due in 7 years. An asset portfolio (already satisfying Conditions 1 & 2) has cash flows at year 3 and year 11. Does this portfolio satisfy the bracketing requirement for Full Immunization?",
+      options: [ "Yes \u2014 year 3 is before, year 11 is after the liability", "No \u2014 both cash flows must be before the liability date", "No \u2014 both cash flows must be after the liability date", "Cannot be determined without duration values", "No \u2014 the cash flows must be exactly equidistant from year 7" ], correct: 0,
+      explanation: {
+        given: [ "Liability due in 7 years", "Asset cash flows at year 3 and year 11", "Conditions 1 & 2 already satisfied" ],
+        find: "Whether the bracketing requirement for Full Immunization is satisfied.",
+        steps: [
+          { label: "Recall the bracketing requirement.",
+            lines: [ "Full Immunization requires an asset cash flow BEFORE the liability date and one AFTER it" ] },
+          { label: "Check the given cash flow times against the liability date.",
+            lines: [ "Year 3 is before year 7, and year 11 is after year 7" ] }
+        ],
+        note: "Combined with Conditions 1 & 2, this portfolio achieves Full Immunization.",
+        answer: "Answer: A \u2014 Yes, the bracketing condition is satisfied."
+      } },
+
+    { tier: "EASY", source: "G.3 Immunization",
+      text: "A liability requires payments of $200 at the end of year 1 and $300 at the end of year 2. Bonds available: 1-year bonds with 4% annual coupons and 2-year bonds with 6% annual coupons, both redeemable at par. Using exact matching (Dedication), find the par value of each bond to purchase.",
+      options: [ "$175.98 of the 1-yr bond, $283.02 of the 2-yr bond", "$283.02 of the 1-yr bond, $175.98 of the 2-yr bond", "$200.00 of the 1-yr bond, $300.00 of the 2-yr bond", "$192.31 of the 1-yr bond, $283.02 of the 2-yr bond", "$175.98 of the 1-yr bond, $300.00 of the 2-yr bond" ], correct: 0,
+      explanation: {
+        given: [ "Liability: $200 at year 1, $300 at year 2", "1-yr bonds: 4% annual coupon, redeemable at par", "2-yr bonds: 6% annual coupon, redeemable at par" ],
+        find: "Par value of each bond needed for exact cash flow matching (Dedication).",
+        steps: [
+          { label: "Start with the 2-year bond, since it's the only one that can cover the year-2 cash flow.",
+            lines: [ "CF\u2082 = 300 = W(1.06)  \u2192  W = $283.02 par" ] },
+          { label: "That same bond also pays a coupon at t=1 \u2014 account for it before sizing the 1-year bond.",
+            lines: [ "Coupon at t=1 from the 2-yr bond = 0.06\u00d7283.02 = $16.98" ] },
+          { label: "Size the 1-year bond to cover what's left of the year-1 liability.",
+            lines: [ "200 = 16.98 + Z(1.04)  \u2192  Z = $175.98 par" ] }
+        ],
+        answer: "Answer: A \u2014 $175.98 of the 1-yr bond, $283.02 of the 2-yr bond."
+      } },
+
+    { tier: "EASY", source: "G.3 Immunization",
+      text: "True or False, with a one-line justification: \"Full Immunization implies Redington Immunization, but Redington Immunization does not necessarily imply Full Immunization.\"",
+      options: [ "True \u2014 bracketing forces the convexity inequality, but not vice versa", "False \u2014 the two are actually equivalent conditions", "True, but only because Full Immunization is a stricter dollar amount requirement", "False \u2014 Redington Immunization always implies Full Immunization instead", "Cannot be determined without specific numbers" ], correct: 0,
+      explanation: {
+        given: [ "A claim comparing Full Immunization and Redington Immunization" ],
+        find: "Whether the claim is true or false, with justification.",
+        steps: [
+          { label: "Consider what Full Immunization's bracketing condition automatically guarantees.",
+            lines: [ "Full Immunization's bracketing condition automatically forces Redington's convexity inequality to hold \u2014 so Full \u21d2 Redington" ] },
+          { label: "Consider whether the reverse holds \u2014 can Redington's conditions hold without bracketing?",
+            lines: [ "A portfolio can satisfy Redington's three conditions without its asset cash flows ever bracketing the liability, so the reverse implication fails" ] }
+        ],
+        answer: "Answer: A \u2014 True. Full Immunization implies Redington Immunization, but not the reverse."
+      } },
+
+    { tier: "MEDIUM", source: "G.3 Duration, Convexity & Immunization",
+      text: "A portfolio holds $30,000 in Bond P (Macaulay duration 3.5) and $70,000 in Bond Q (Macaulay duration 8.5), both valued at 6%. Find the portfolio's Macaulay and Modified duration.",
+      options: [ "MacD=7.00, ModD=6.60", "MacD=6.00, ModD=6.60", "MacD=7.00, ModD=7.42", "MacD=6.60, ModD=7.00", "MacD=6.00, ModD=5.66" ], correct: 0,
+      explanation: {
+        given: [ "Bond P: $30,000, Macaulay duration 3.5", "Bond Q: $70,000, Macaulay duration 8.5", "Both valued at i = 6%" ],
+        find: "Portfolio Macaulay duration and Modified duration.",
+        steps: [
+          { label: "Compute the price-weighted average Macaulay duration.",
+            lines: [ "MacD\u209a = (30,000\u00d73.5 + 70,000\u00d78.5) / 100,000" ] },
+          { label: "Convert to Modified duration.",
+            lines: [ "ModD\u209a = 7.00 / 1.06" ] }
+        ],
+        answer: "Answer: A \u2014 MacD = 7.00, ModD \u2248 6.60."
+      } },
+
+    { tier: "MEDIUM", source: "G.3 Duration, Convexity & Immunization",
+      text: "A portfolio holds $50,000 in a 3-year bond with a 6% annual coupon (priced at par) and $50,000 in a 9-year zero-coupon bond, both valued at 6%. Find the portfolio's Macaulay convexity.",
+      options: ["38.20", "41.50", "44.64", "47.90", "50.00"], correct: 2,
+      explanation: {
+        given: [ "3-yr bond: $50,000, 6% annual coupon, priced at par", "9-yr zero-coupon bond: $50,000", "Both valued at i = 6%" ],
+        find: "Portfolio Macaulay convexity.",
+        steps: [
+          { label: "Find the 3-year par bond's Macaulay convexity directly (cash flows 6, 6, 106 at t=1,2,3).",
+            lines: [ "MacC\u2083 = (1\u00b76v + 4\u00b76v\u00b2 + 9\u00b7106v\u00b3)/100" ] },
+          { label: "The 9-year zero's Macaulay convexity is simply its maturity squared.",
+            lines: [ "MacC\u2089 = 9\u00b2 = 81" ] },
+          { label: "Weight both by their equal price shares (50/50).",
+            lines: [ "Portfolio MacC = 0.5(8.280) + 0.5(81)" ] }
+        ],
+        answer: "Answer: C \u2014 Portfolio MacC = 44.64."
+      } },
+
+    { tier: "MEDIUM", source: "G.3 Duration, Convexity & Immunization",
+      text: "A 12-year bond has a 6% annual coupon and is priced at par when the yield is 6% (ModD = 8.3838, convexity c = 91.9259). Using a second-order Taylor approximation, estimate the price change if the yield rises to 7%, and compare to the exact change.",
+      options: [ "First-order \u22128.38%, second-order \u22127.92%, exact \u22127.94%", "First-order \u22127.94%, second-order \u22128.38%, exact \u22127.92%", "First-order \u22128.38%, second-order \u22128.90%, exact \u22127.94%", "First-order \u22127.92%, second-order \u22127.94%, exact \u22128.38%", "First-order \u22128.38%, second-order \u22127.92%, exact \u22128.38%" ], correct: 0,
+      explanation: {
+        given: [ "12-year, 6% annual coupon bond, priced at par at 6% yield", "ModD = 8.3838, convexity c = 91.9259", "Yield rises to 7%" ],
+        find: "First-order estimate, second-order estimate, and the exact price change.",
+        steps: [
+          { label: "Compute the first-order (duration-only) estimate.",
+            lines: [ "\u2212ModD(0.01) = \u22128.38%" ] },
+          { label: "Add the convexity correction term.",
+            lines: [ "\u22128.384% + 0.5(91.926)(0.0001) = \u22127.924%" ] },
+          { label: "Compare to the exact price at 7%.",
+            lines: [ "Exact price at 7% \u2248 $92.057, so the exact change is \u22127.943%" ] }
+        ],
+        note: "Once again, adding the convexity term moves the estimate much closer to the true value.",
+        answer: "Answer: A \u2014 First-order \u22128.38%, second-order \u22127.92%, exact \u22127.94%."
+      } },
+
+    { tier: "MEDIUM", source: "G.3 Duration, Convexity & Immunization",
+      text: "Find the Macaulay duration of a 10-year annuity-immediate paying $1,000 at the end of each year, valued at 5%.",
+      options: ["4.55", "4.87", "5.10", "5.50", "6.25"], correct: 2,
+      explanation: {
+        given: [ "10-year annuity-immediate, $1,000 at the end of each year", "i = 5%" ],
+        find: "Macaulay duration.",
+        steps: [
+          { label: "Find the present value.",
+            lines: [ "PV = 1000\u00b7a\u2081\u2080|5% = $7,721.73" ] },
+          { label: "Weight each payment's time by its present value, sum, and divide by the total PV.",
+            lines: [ "MacD = \u03a3 t\u00b71000v\u1d57 / PV" ] }
+        ],
+        answer: "Answer: C \u2014 Macaulay duration \u2248 5.10 years."
+      } },
+
+    { tier: "MEDIUM", source: "G.3 Duration, Convexity & Immunization",
+      text: "A liability of $20,000 is due in 7 years, valued at 5%. An investor can buy 3-year and 10-year zero-coupon bonds, both yielding 5%. Find the allocation satisfying Conditions 1 & 2, then verify Condition 3.",
+      options: [ "x=42.86% in 3-yr, MacCA=61.0 > MacCL=49 \u2014 Condition 3 holds", "x=57.14% in 3-yr, MacCA=49 > MacCL=61.0 \u2014 Condition 3 holds", "x=42.86% in 3-yr, MacCA=49 = MacCL=49 \u2014 Condition 3 fails", "x=50.00% in 3-yr, MacCA=61.0 > MacCL=49 \u2014 Condition 3 holds", "x=42.86% in 3-yr, MacCA=45.0 < MacCL=49 \u2014 Condition 3 fails" ], correct: 0,
+      explanation: {
+        given: [ "Liability: $20,000 due in 7 years, valued at 5%", "Assets: 3-year and 10-year zero-coupon bonds, both yielding 5%" ],
+        find: "The allocation satisfying Conditions 1 & 2, and whether Condition 3 holds.",
+        steps: [
+          { label: "Find the liability's present value \u2014 this equals the total invested.",
+            lines: [ "PL = 20,000/1.05\u2077 = $14,213.63 = PA" ] },
+          { label: "Duration-match to find the allocation split x (fraction in the 3-year bond).",
+            lines: [ "3x + 10(1\u2212x) = 7  \u2192  x = 3/7 \u2248 42.86%" ] },
+          { label: "Check Condition 3 by comparing the asset and liability Macaulay convexities.",
+            lines: [ "MacCL = 7\u00b2 = 49", "MacCA = 9(3/7) + 100(4/7) = 61.0", "61.0 > 49 \u2014 Condition 3 HOLDS" ] }
+        ],
+        answer: "Answer: A \u2014 x \u2248 42.86% in the 3-yr bond; MacCA=61.0 > MacCL=49, Condition 3 holds."
+      } },
+
+    { tier: "MEDIUM", source: "G.3 Duration, Convexity & Immunization",
+      text: "A liability of $15,000 is due in 6 years, valued at 5%. Using 3-year and 10-year zero-coupon bonds, find the allocation satisfying Conditions 1 & 2, and confirm whether Full Immunization is achieved.",
+      options: [ "x=57.14% in 3-yr; cash flows at t=3 and t=10 bracket t=6 \u2014 Full Immunization achieved", "x=42.86% in 3-yr; cash flows do NOT bracket t=6 \u2014 Full Immunization not achieved", "x=57.14% in 3-yr; only Conditions 1 & 2 hold, bracketing fails", "x=50.00% in 3-yr; Full Immunization achieved", "x=57.14% in 3-yr; Full Immunization cannot be determined without convexity values" ], correct: 0,
+      explanation: {
+        given: [ "Liability: $15,000 due in 6 years, valued at 5%", "Assets: 3-year and 10-year zero-coupon bonds" ],
+        find: "The allocation satisfying Conditions 1 & 2, and whether Full Immunization is achieved.",
+        steps: [
+          { label: "Find the liability's present value.",
+            lines: [ "PL = 15,000/1.05\u2076 = $11,193.23 = PA" ] },
+          { label: "Duration-match to find the allocation split x.",
+            lines: [ "3x + 10(1\u2212x) = 6  \u2192  x = 4/7 \u2248 57.14%" ] },
+          { label: "Check the bracketing requirement: does an asset cash flow fall before AND after t=6?",
+            lines: [ "Asset cash flows at t=3 (before) and t=10 (after) the t=6 liability" ] }
+        ],
+        answer: "Answer: A \u2014 x \u2248 57.14% in the 3-yr bond; Full Immunization IS achieved."
+      } },
+
+    { tier: "MEDIUM", source: "G.3 Dedication", 
+      text: "A liability requires payments of $500, $700, and $900 at the end of years 1, 2, and 3. Bonds available (par-redeemable, annual coupons): 1-yr @ 4%, 2-yr @ 5%, 3-yr @ 6%. Find the par value of each bond needed for Dedication.",
+      options: [ "1-yr: $402.07, 2-yr: $618.15, 3-yr: $849.06", "1-yr: $849.06, 2-yr: $618.15, 3-yr: $402.07", "1-yr: $500.00, 2-yr: $700.00, 3-yr: $900.00", "1-yr: $402.07, 2-yr: $700.00, 3-yr: $849.06", "1-yr: $480.77, 2-yr: $618.15, 3-yr: $849.06" ], correct: 0,
+      explanation: {
+        given: [ "Liability: $500 at year 1, $700 at year 2, $900 at year 3", "1-yr bond @ 4%, 2-yr bond @ 5%, 3-yr bond @ 6%, all par-redeemable" ],
+        find: "Par value of each bond needed for exact cash flow matching.",
+        steps: [
+          { label: "Start with the 3-year bond, since it's the only one covering the year-3 cash flow.",
+            lines: [ "CF\u2083 = 900 = W + 0.06W  \u2192  W = $849.06 par", "(contributes a coupon of $50.94 to each of years 1 and 2)" ] },
+          { label: "Size the 2-year bond to cover what's left of the year-2 liability.",
+            lines: [ "CF\u2082 = 700 = 50.94 + X + 0.05X  \u2192  X = $618.15 par", "(contributes a coupon of $30.91 to year 1)" ] },
+          { label: "Size the 1-year bond to cover what's left of the year-1 liability.",
+            lines: [ "CF\u2081 = 500 = 50.94 + 30.91 + Z(1.04)  \u2192  Z = $402.07 par" ] }
+        ],
+        answer: "Answer: A \u2014 1-yr: $402.07, 2-yr: $618.15, 3-yr: $849.06."
+      } },
+
+    { tier: "MEDIUM", source: "G.3 Duration, Convexity & Immunization",
+      text: "A liability due in 8 years is valued at 5%, giving MacCL = 64. An asset portfolio of 5-year and 20-year zero-coupon bonds is split 80% / 20% by value. Confirm this satisfies Condition 2, then check Condition 3.",
+      options: [ "Condition 2 holds (D=8.0); MacCA=100 > 64, Condition 3 holds", "Condition 2 fails (D=9.0)", "Condition 2 holds (D=8.0); MacCA=64 = 64, Condition 3 fails", "Condition 2 holds (D=8.0); MacCA=60 < 64, Condition 3 fails", "Condition 2 holds (D=12.5); MacCA=100 > 64, Condition 3 holds" ], correct: 0,
+      explanation: {
+        given: [ "Liability due in 8 years, valued at 5%, MacCL = 64", "Assets: 5-year and 20-year zero-coupon bonds, split 80%/20% by value" ],
+        find: "Whether Condition 2 holds, then whether Condition 3 holds.",
+        steps: [
+          { label: "Check Condition 2: does the price-weighted asset duration equal 8?",
+            lines: [ "0.80(5) + 0.20(20) = 4.0+4.0 = 8.0  \u2713" ] },
+          { label: "Compute the asset portfolio's Macaulay convexity.",
+            lines: [ "MacCA = 0.80(25) + 0.20(400) = 20+80" ] },
+          { label: "Compare to the liability's convexity.",
+            lines: [ "100 > 64 \u2014 Condition 3 HOLDS, with a wide margin thanks to the 20-year bond's outsized convexity contribution" ] }
+        ],
+        answer: "Answer: A \u2014 Condition 2 holds (D=8.0); MacCA=100 > 64, Condition 3 holds."
+      } },
+
+    { tier: "MEDIUM", source: "G.3 Duration, Convexity & Immunization",
+      text: "A single 8-year zero-coupon bond with face value $8,000 is used to immunize two liability cash flows: X due in 4 years and Y due in 13 years, at i = 5%. (a) Find X and Y satisfying Conditions 1 & 2. (b) Check Condition 3.",
+      options: [ "X=$3,656.46, Y=$4,537.89; MacCA=64 < MacCL=84, Condition 3 FAILS", "X=$4,537.89, Y=$3,656.46; MacCA=64 < MacCL=84, Condition 3 FAILS", "X=$3,656.46, Y=$4,537.89; MacCA=84 > MacCL=64, Condition 3 holds", "X=$4,000.00, Y=$4,000.00; MacCA=64 < MacCL=84, Condition 3 FAILS", "X=$3,656.46, Y=$4,537.89; MacCA=64 = MacCL=64, Condition 3 fails" ], correct: 0,
+      explanation: {
+        given: [ "Single 8-year zero-coupon bond, face value $8,000", "Liability cash flows: X due in 4 years, Y due in 13 years", "i = 5%" ],
+        find: "(a) X and Y satisfying Conditions 1 & 2. (b) Whether Condition 3 holds.",
+        steps: [
+          { label: "(a) Set up the PV-match (Condition 1) and duration-match (Condition 2) equations.",
+            lines: [ "Condition 1: 8000v\u2078 = Xv\u2074+Yv\u00b9\u00b3", "Condition 2 simplifies to: 4Xv\u2074 = 5Yv\u00b9\u00b3" ] },
+          { label: "Solve the system for X and Y.",
+            lines: [ "X = $3,656.46,  Y = $4,537.89" ] },
+          { label: "(b) Compare the asset's convexity (a single cash flow) to the liability's (spread across two dates).",
+            lines: [ "MacCA = 8\u00b2 = 64 (single cash flow)", "MacCL = (16Xv\u2074+169Yv\u00b9\u00b3)/(Xv\u2074+Yv\u00b9\u00b3) = 84.0", "36 < 84 \u2014 Condition 3 FAILS" ] }
+        ],
+        note: "A concentrated (single-cash-flow) asset can never out-convex a liability whose cash flows are spread further apart, even when Conditions 1 & 2 match exactly.",
+        answer: "Answer: A \u2014 X=$3,656.46, Y=$4,537.89; MacCA=64 < MacCL=84, Condition 3 FAILS."
+      } },
+
+    { tier: "MEDIUM", source: "G.3 Duration, Convexity & Immunization",
+      text: "A 10-year bond pays semiannual coupons of 3% per half-year (6% nominal annual, convertible semiannually) and is redeemable at par at that same yield. Its Macaulay duration works out to 15.3238 half-years. Find its Modified duration, expressed in years, with respect to the nominal semiannual yield.",
+      options: ["7.4387", "7.2221", "7.6619", "14.0385", "7.0192"], correct: 0,
+      explanation: {
+        given: [ "10-year bond, semiannual coupons of 3% per half-year (6% nominal annual)", "Macaulay duration = 15.3238 half-years" ],
+        find: "Modified duration in years, with respect to the nominal semiannual yield.",
+        steps: [
+          { label: "Convert Macaulay duration to years first.",
+            lines: [ "MacD = 15.3238 / 2 = 7.6619 years" ] },
+          { label: "Divide by (1 + i-per-period), using the semiannual rate of 3% \u2014 NOT the annual effective rate.",
+            lines: [ "ModD = 7.6619 / 1.03" ] }
+        ],
+        note: "A common slip: dividing by the annual EFFECTIVE rate (6.09%) instead gives 7.2221 (option B) \u2014 close-looking, but wrong, because it mixes two different compounding bases.",
+        answer: "Answer: A \u2014 Modified duration \u2248 7.4387 years."
+      } },
+
+    { tier: "CHALLENGE", source: "G.3 Immunization Under a Twist",
+      text: "A portfolio satisfies all three of Redington's conditions relative to a PARALLEL shift in a flat 5% curve: 37.846 units of a 3-year 5% coupon bond and 56.997 units of a 7-year zero-coupon bond (100 face each), funding a $10,000 liability due in 5 years. Suppose instead the curve TWISTS: the short end (years 1\u20133) falls to 4%, the long end (year 7) rises to 6%, while the 5-year point governing the liability stays at 5%. Does the surplus survive this shift?",
+      options: [ "No \u2014 surplus goes to about \u2212$155", "Yes \u2014 surplus stays at approximately $0", "Yes \u2014 surplus increases to about +$155", "Cannot be determined without recomputing convexity", "No \u2014 surplus goes to about \u2212$500" ], correct: 0,
+      explanation: {
+        given: [ "Original flat-5% position: 37.846 units of a 3-yr 5% bond, 56.997 units of a 7-yr zero, funding a $10,000 liability due in 5 years", "Twist: years 1\u20133 fall to 4%, year 7 rises to 6%, the 5-year point stays at 5%" ],
+        find: "Whether the surplus (PA \u2212 PL) survives the twist.",
+        steps: [
+          { label: "Confirm the original flat-curve position has (approximately) zero surplus.",
+            lines: [ "PA = PL = $7,835.26, surplus \u2248 $0" ] },
+          { label: "Under the twist, reprice each asset cash flow at ITS OWN new rate.",
+            lines: [ "PA(twist) = 37.846\u00d7[5v(4%)\u00b9+5v(4%)\u00b2+105v(4%)\u00b3] + 56.997\u00d7100v(6%)\u2077" ] },
+          { label: "Reprice the liability \u2014 its own 5-year rate didn't move, so it's unchanged.",
+            lines: [ "PL(twist) = 10,000\u00d7v(5%)\u2075 = $7,835.26 (unchanged)" ] },
+          { label: "Compare the twisted asset and liability values.",
+            lines: [ "Surplus = 7,680.24 \u2212 7,835.26" ] }
+        ],
+        note: "The surplus goes NEGATIVE even though every Redington condition was satisfied \u2014 exactly why the 'flat curve, parallel shifts only' assumption matters. A twist moves the asset's two ends in opposite directions relative to the liability's fixed pivot, and Redington's guarantee simply does not extend to that.",
+        answer: "Answer: A \u2014 No, the surplus goes to about \u2212$155."
+      } },
+
+    { tier: "CHALLENGE", source: "G.3 Rebalancing Over Time",
+      text: "A liability is a single cash flow due in 10 years, valued at 5%. An asset portfolio of 4-year and 16-year bonds, EACH a 5% annual-coupon bond priced at par (Macaulay durations 3.7232 and 11.3797 years respectively \u2014 not simply \"4\" and \"16\"), is allocated to duration-match the liability. One year passes with NO change in interest rates. Does the portfolio remain duration-matched?",
+      options: [ "No \u2014 asset duration drifts to about 9.45 vs liability's 9.00", "Yes \u2014 both durations decay at exactly the same pace", "No \u2014 asset duration drifts to about 8.50 vs liability's 9.00", "Yes, since rates didn't change, nothing about duration changes either", "Cannot be determined without recomputing convexity" ], correct: 0,
+      explanation: {
+        given: [ "Liability: single cash flow due in 10 years, valued at 5%", "Assets: 4-year and 16-year 5% coupon bonds priced at par (MacD = 3.7232 and 11.3797 years)", "One year passes, rates unchanged" ],
+        find: "Whether the portfolio remains duration-matched after one year.",
+        steps: [
+          { label: "Find the initial allocation that duration-matches the 10-year liability.",
+            lines: [ "3.7232x + 11.3797(1\u2212x) = 10  \u2192  x = 18.02% in the 4-yr bond" ] },
+          { label: "One year later, the bonds have become 3-year and 15-year par bonds, with new durations 2.8594 and 10.8986. Since both still trade at par, the value-weight x is unchanged.",
+            lines: [ "New asset duration = 0.1802(2.8594) + 0.8198(10.8986)" ] },
+          { label: "Compare to the liability's new duration \u2014 which has simply ticked down by exactly one year of calendar time.",
+            lines: [ "New liability duration = 10\u22121 = 9.00", "Drift = 9.45 \u2212 9.00" ] }
+        ],
+        note: "A lump-sum liability's duration always decays at exactly the pace of calendar time. A coupon bond's duration decays SLOWER, because each surviving coupon is now relatively closer. That mismatch is exactly why immunized portfolios need periodic rebalancing, even when rates never move.",
+        answer: "Answer: A \u2014 No, asset duration drifts to \u2248 9.45 vs the liability's 9.00 (drift \u2248 0.45 years)."
+      } },
+
+    { tier: "CHALLENGE", source: "G.3 Bullet vs. Barbell",
+      text: "A liability is a single cash flow due in 10 years, valued at 5% (MacCL = 100). Compare a \"bullet\" (100% in a single 10-year zero-coupon bond) versus a \"barbell\" (2-year and 18-year zeros, duration-matched to 10). Compute each portfolio's convexity, and determine whether the bullet's failure to satisfy Condition 3 as literally stated means it's unprotected.",
+      options: [ "Bullet MacC=100 (equality, not protection issue \u2014 it's Dedication), Barbell MacC=164 > 100", "Bullet MacC=100 (unprotected), Barbell MacC=80 < 100 (also unprotected)", "Bullet MacC=50, Barbell MacC=164", "Bullet MacC=164, Barbell MacC=100", "Bullet MacC=100 > Barbell MacC=90, so the bullet is actually superior" ], correct: 0,
+      explanation: {
+        given: [ "Liability: single cash flow due in 10 years, valued at 5%, MacCL = 100", "Bullet: 100% in a single 10-year zero", "Barbell: 2-year and 18-year zeros, duration-matched to 10" ],
+        find: "Each portfolio's convexity, and whether the bullet is actually unprotected.",
+        steps: [
+          { label: "Compute the bullet's convexity \u2014 it's a single cash flow at the same time as the liability.",
+            lines: [ "Bullet: MacCA = 10\u00b2 = 100 = MacCL exactly \u2014 an EQUALITY, not a strict inequality" ] },
+          { label: "Compute the barbell's allocation and convexity.",
+            lines: [ "2x+18(1\u2212x)=10 \u2192 x=0.5", "MacCA = 0.5(4)+0.5(324) = 164 > 100 \u2014 Condition 3 clearly HOLDS" ] },
+          { label: "Reconsider what the bullet's exact-equality case actually means.",
+            lines: [ "When the asset IS the liability's exact cash flow, that's Dedication: surplus is identically zero for EVERY interest rate, not just protected near i\u2080" ] }
+        ],
+        note: "Condition 3 exists to give protection when assets and liabilities are structurally DIFFERENT cash-flow streams; when they're identical, the whole convexity apparatus becomes a moot, degenerate case.",
+        answer: "Answer: A \u2014 Bullet MacC=100 (equality \u2014 it's Dedication, not unprotected), Barbell MacC=164 > 100."
+      } },
+
+    { tier: "CHALLENGE", source: "G.3 Proving Condition 3",
+      text: "Prove, from the definitions, that (given Conditions 1 and 2 already hold) Redington's Condition 3 \u2014 ConvA > ConvL \u2014 is mathematically equivalent to the surplus-function condition S''(i\u2080) > 0.",
+      options: [ "S''(i\u2080) = P\u00b7(ConvA \u2212 ConvL), so the two conditions have the same sign and are equivalent", "S''(i\u2080) is unrelated to ConvA and ConvL", "S''(i\u2080) = ConvA + ConvL always, so the conditions are never equivalent", "The two conditions are only equivalent when P = 1", "S''(i\u2080) > 0 is a stricter condition than ConvA > ConvL" ], correct: 0,
+      explanation: {
+        given: [ "S(i) = PA(i) \u2212 PL(i), the surplus function", "Conditions 1 and 2 already hold" ],
+        find: "That ConvA > ConvL is equivalent to S''(i\u2080) > 0.",
+        steps: [
+          { label: "Differentiate the surplus function twice.",
+            lines: [ "S(i) = PA(i) \u2212 PL(i)", "S''(i) = PA''(i) \u2212 PL''(i)" ] },
+          { label: "Use the definition of convexity, c = (1/P)\u00b7P''(i), to rewrite each second derivative.",
+            lines: [ "P''(i) = c\u00b7P(i) for each side", "S''(i\u2080) = ConvA\u00b7PA(i\u2080) \u2212 ConvL\u00b7PL(i\u2080)" ] },
+          { label: "By Condition 1, PA(i\u2080) = PL(i\u2080) \u2261 P. Factor it out.",
+            lines: [ "S''(i\u2080) = P\u00b7(ConvA \u2212 ConvL)" ] },
+          { label: "Since P > 0, the sign of S''(i\u2080) is determined entirely by the sign of (ConvA\u2212ConvL).",
+            lines: [ "S''(i\u2080) > 0  \u21d4  ConvA > ConvL" ] }
+        ],
+        note: "The two framings of Condition 3 \u2014 the convexity inequality and 'local minimum of the surplus function' \u2014 are simply two descriptions of the same fact.",
+        answer: "Answer: A \u2014 S''(i\u2080) = P\u00b7(ConvA \u2212 ConvL), so the two conditions are equivalent."
+      } },
+
+    { tier: "CHALLENGE", source: "G.3 Comparing Candidate Portfolios",
+      text: "A liability is due in 6 years, valued at 5% (MacCL = 36). Four candidate portfolios are proposed: P1) 5-yr and 6-yr zeros, duration-matched; P2) 4-yr and 9-yr zeros, duration-matched; P3) 100% in a single 6-yr zero; P4) 3-yr and 12-yr zeros, split 60%/40% (NOT solved for duration match \u2014 just assumed). Which, if any, genuinely achieve full Redington Immunization?",
+      options: [ "Only P2 (P1 collapses into P3, which is Dedication not strict Condition 3; P4 fails Condition 2)", "All four portfolios achieve it", "Only P3, since it's the simplest match", "P1 and P2 both achieve it, P3 and P4 fail", "None of the four portfolios achieve it" ], correct: 0,
+      explanation: {
+        given: [ "Liability due in 6 years, valued at 5%, MacCL = 36", "P1: 5-yr & 6-yr zeros, duration-matched", "P2: 4-yr & 9-yr zeros, duration-matched", "P3: 100% in a single 6-yr zero", "P4: 3-yr & 12-yr zeros, split 60%/40% (not solved for duration match)" ],
+        find: "Which portfolio(s) genuinely achieve full Redington Immunization.",
+        steps: [
+          { label: "Check P1: solve its duration-match equation.",
+            lines: [ "5x+6(1\u2212x)=6 \u2192 x=0 \u2014 the math forces 100% into the 6-yr bond, so P1 collapses into P3" ] },
+          { label: "Check P3: compare its convexity to the liability's.",
+            lines: [ "MacCA = 6\u00b2 = 36 = MacCL \u2014 an EQUALITY, not a strict inequality \u2014 fails Condition 3 as literally stated (a degenerate Dedication case)" ] },
+          { label: "Check P4: verify whether the given split actually duration-matches.",
+            lines: [ "Duration = 0.6(3)+0.4(12) = 6.6 \u2260 6 \u2014 Condition 2 fails outright" ] },
+          { label: "Check P2: solve its duration-match equation, then compare convexities.",
+            lines: [ "4x+9(1\u2212x)=6 \u2192 x=0.6", "MacCA = 0.6(16)+0.4(81) = 42.0 > 36 \u2014 Condition 3 HOLDS, and since 4<6<9, Full Immunization is achieved" ] }
+        ],
+        answer: "Answer: A \u2014 Only P2 genuinely achieves full Redington Immunization."
+      } }
+          ]
+        }
+      ]
+    }
+  ]
+};
+</script>
+<style>
+
+:root{
+  --ink:#14203A;
+  --ink-soft:#22314F;
+  --paper:#FAFAF7;
+  --paper-dim:#F1EFE6;
+  --line:#DEDCD1;
+  --slate:#5B6478;
+  --slate-soft:#8890A0;
+  --teal:#2C7A7B;
+  --teal-dark:#1F5859;
+  --teal-tint:#E4F1F0;
+  --green:#2F8F5B;
+  --green-tint:#E7F5EC;
+  --red:#C24444;
+  --red-tint:#FBEAEA;
+  --amber:#C97A2B;
+  --amber-tint:#FBF0E2;
+  --font-display:'Newsreader', serif;
+  --font-body:'Inter', -apple-system, sans-serif;
+  --font-mono:'IBM Plex Mono', monospace;
+}
+
+*{ box-sizing:border-box; }
+html,body{ margin:0; padding:0; }
+body{
+  background:var(--ink);
+  font-family:var(--font-body);
+  color:var(--ink);
+  min-height:100vh;
+  -webkit-font-smoothing:antialiased;
+}
+button{ font-family:inherit; cursor:pointer; }
+input{ font-family:inherit; }
+::selection{ background:var(--teal); color:#fff; }
+
+.screen{ display:none; min-height:100vh; }
+.screen.active{ display:flex; }
+
+/* =====================================================================
+   LOGIN
+   ===================================================================== */
+#screen-login{
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  padding:32px 20px;
+  background:
+    radial-gradient(circle at 18% 20%, rgba(255,255,255,0.05), transparent 45%),
+    var(--ink);
+}
+.ticket{
+  width:100%;
+  max-width:420px;
+  background:var(--paper);
+  border-radius:4px;
+  overflow:hidden;
+  box-shadow:0 30px 60px rgba(0,0,0,0.35);
+}
+.ticket-head{
+  background:var(--ink);
+  color:var(--paper);
+  padding:28px 32px 24px;
+}
+.ticket-eyebrow{
+  font-family:var(--font-mono);
+  font-size:11px;
+  letter-spacing:0.16em;
+  text-transform:uppercase;
+  color:var(--teal-tint);
+  opacity:0.75;
+  margin:0 0 10px;
+}
+.ticket-title{
+  font-family:var(--font-display);
+  font-weight:600;
+  font-size:26px;
+  line-height:1.2;
+  margin:0 0 6px;
+}
+.ticket-sub{
+  font-size:13px;
+  color:#B9C2D6;
+  margin:0;
+}
+.ticket-perf{
+  position:relative;
+  height:0;
+}
+.ticket-perf::before{
+  content:"";
+  position:absolute;
+  left:0; right:0; top:-1px;
+  height:2px;
+  background-image:radial-gradient(circle, var(--ink) 2px, transparent 2.2px);
+  background-size:14px 2px;
+  background-repeat:repeat-x;
+}
+.ticket-body{ padding:30px 32px 32px; }
+.field{ margin-bottom:18px; }
+.field label{
+  display:block;
+  font-size:11px;
+  letter-spacing:0.08em;
+  text-transform:uppercase;
+  color:var(--slate);
+  margin-bottom:7px;
+  font-weight:500;
+}
+.field input{
+  width:100%;
+  padding:12px 14px;
+  border:1px solid var(--line);
+  border-radius:3px;
+  background:#fff;
+  font-size:15px;
+  color:var(--ink);
+  outline:none;
+  transition:border-color .15s;
+}
+.field input:focus{
+  border-color:var(--teal);
+  box-shadow:0 0 0 3px var(--teal-tint);
+}
+.btn{
+  border:none;
+  border-radius:3px;
+  font-weight:600;
+  font-size:14px;
+  padding:13px 20px;
+  transition:transform .1s, background .15s;
+}
+.btn:active{ transform:scale(0.98); }
+.btn-primary{ width:100%; background:var(--teal); color:#fff; letter-spacing:0.02em; }
+.btn-primary:hover{ background:var(--teal-dark); }
+.btn-ghost{ background:transparent; border:1px solid var(--line); color:var(--slate); }
+.btn-ghost:hover{ border-color:var(--slate-soft); color:var(--ink); }
+.login-error{
+  display:none;
+  margin-top:14px;
+  padding:11px 14px;
+  background:var(--red-tint);
+  color:#8C2E2E;
+  border-radius:3px;
+  font-size:13px;
+  line-height:1.4;
+}
+.login-error.show{ display:block; }
+.login-footer{ max-width:420px; width:100%; margin:20px auto 0; text-align:center; }
+.login-footer p{ font-size:12px; color:#B9C2D6; letter-spacing:0.02em; margin:0 0 12px; }
+.btn-tutor{
+  display:inline-block;
+  background:var(--teal);
+  color:#fff;
+  border:none;
+  border-radius:3px;
+  padding:12px 20px;
+  font-size:13px;
+  font-weight:600;
+  text-decoration:none;
+  white-space:nowrap;
+  transition:background .15s, transform .1s;
+}
+.btn-tutor:hover{ background:var(--teal-dark); }
+.login-footer .btn-tutor{ width:100%; }
+
+/* =====================================================================
+   CHAPTER MENU
+   ===================================================================== */
+#screen-chapters{
+  flex-direction:column;
+  width:100%;
+  background:var(--paper);
+}
+.menu-bar{
+  background:var(--ink);
+  color:var(--paper);
+  padding:24px 28px;
+}
+.menu-bar-eyebrow{
+  font-family:var(--font-mono);
+  font-size:11px;
+  letter-spacing:0.16em;
+  text-transform:uppercase;
+  color:#94A2BE;
+  margin:0 0 8px;
+}
+.menu-bar-title{
+  font-family:var(--font-display);
+  font-weight:600;
+  font-size:24px;
+  margin:0;
+}
+.menu-main{
+  flex:1;
+  max-width:760px;
+  width:100%;
+  margin:0 auto;
+  padding:32px 24px 48px;
+}
+.syllabus-group{ margin-bottom:32px; }
+.syllabus-group-head{
+  display:flex;
+  align-items:baseline;
+  justify-content:space-between;
+  margin-bottom:14px;
+  padding-bottom:10px;
+  border-bottom:1px solid var(--line);
+}
+.syllabus-group-title{
+  font-family:var(--font-display);
+  font-size:17px;
+  font-weight:600;
+  color:var(--ink);
+}
+.syllabus-group-weight{
+  font-family:var(--font-mono);
+  font-size:11px;
+  color:var(--slate-soft);
+  letter-spacing:0.04em;
+}
+.chapter-card{
+  display:flex;
+  align-items:center;
+  gap:18px;
+  background:#fff;
+  border:1px solid var(--line);
+  border-radius:5px;
+  padding:18px 20px;
+  margin-bottom:10px;
+}
+.chapter-card.available{ cursor:pointer; transition:border-color .12s, background .12s; }
+.chapter-card.available:hover{ border-color:var(--teal); background:var(--teal-tint); }
+.chapter-card.locked{ opacity:0.6; }
+.chapter-code{
+  font-family:var(--font-mono);
+  font-size:13px;
+  font-weight:600;
+  color:var(--teal-dark);
+  background:var(--teal-tint);
+  border-radius:3px;
+  padding:6px 10px;
+  flex:none;
+  white-space:nowrap;
+}
+.chapter-card.locked .chapter-code{ color:var(--slate); background:var(--paper-dim); }
+.chapter-info{ flex:1; min-width:0; }
+.chapter-title{ font-size:14.5px; font-weight:600; color:var(--ink); margin:0 0 3px; }
+.chapter-desc{ font-size:12.5px; color:var(--slate); margin:0; line-height:1.5; }
+.chapter-meta{
+  font-family:var(--font-mono);
+  font-size:11px;
+  color:var(--slate-soft);
+  flex:none;
+  text-align:right;
+  white-space:nowrap;
+}
+
+/* =====================================================================
+   PRACTICE SCREEN
+   ===================================================================== */
+#screen-practice{
+  flex-direction:column;
+  width:100%;
+  background:var(--paper);
+}
+.practice-bar{
+  background:var(--ink);
+  color:var(--paper);
+  padding:16px 28px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  flex-wrap:wrap;
+  gap:12px;
+  position:sticky;
+  top:0;
+  z-index:10;
+}
+.practice-bar-left{ display:flex; flex-direction:column; gap:2px; }
+.practice-bar-back{
+  background:none;
+  border:none;
+  color:#94A2BE;
+  font-family:var(--font-mono);
+  font-size:11px;
+  padding:0;
+  margin-bottom:6px;
+  text-align:left;
+}
+.practice-bar-back:hover{ color:#fff; }
+.practice-bar-title{ font-family:var(--font-display); font-weight:600; font-size:17px; }
+.practice-bar-sub{ font-family:var(--font-mono); font-size:11px; color:#94A2BE; }
+.practice-bar-right{ display:flex; align-items:center; gap:12px; }
+.score-pill{
+  font-family:var(--font-mono);
+  font-size:13px;
+  font-weight:600;
+  padding:8px 14px;
+  border-radius:3px;
+  background:rgba(255,255,255,0.08);
+  color:#EAF6F3;
+}
+.btn-reset{
+  background:transparent;
+  border:1px solid rgba(255,255,255,0.25);
+  color:#EAF6F3;
+  font-size:12px;
+  padding:8px 14px;
+}
+.btn-reset:hover{ border-color:#fff; background:rgba(255,255,255,0.08); }
+.practice-main{
+  flex:1;
+  max-width:760px;
+  width:100%;
+  margin:0 auto;
+  padding:32px 24px 20px;
+}
+.q-card{
+  background:#fff;
+  border:1px solid var(--line);
+  border-radius:5px;
+  padding:28px 30px;
+  margin-bottom:20px;
+}
+.q-eyebrow{
+  display:flex;
+  justify-content:space-between;
+  align-items:baseline;
+  margin-bottom:12px;
+  flex-wrap:wrap;
+  gap:8px;
+}
+.q-eyebrow-num{
+  font-family:var(--font-mono);
+  font-size:12px;
+  letter-spacing:0.08em;
+  color:var(--teal-dark);
+  font-weight:600;
+}
+.q-eyebrow-source{
+  font-size:11px;
+  color:var(--slate-soft);
+  font-style:italic;
+}
+.q-text{
+  font-family:var(--font-display);
+  font-size:18px;
+  line-height:1.55;
+  color:var(--ink);
+  margin:0 0 22px;
+}
+.options{ display:flex; flex-direction:column; gap:10px; }
+.option{
+  display:flex;
+  align-items:flex-start;
+  gap:14px;
+  padding:13px 16px;
+  border:1px solid var(--line);
+  border-radius:4px;
+  cursor:pointer;
+  transition:border-color .12s, background .12s;
+}
+.option:hover{ border-color:var(--teal); background:var(--teal-tint); }
+.option.selected{ border-color:var(--teal); background:var(--teal-tint); }
+.q-card.submitted .option{ cursor:default; }
+.q-card.submitted .option:hover{ border-color:var(--line); background:#fff; }
+.q-card.submitted .option.selected:hover{ border-color:var(--teal); background:var(--teal-tint); }
+.q-card.submitted .option.is-correct{ border-color:var(--green); background:var(--green-tint); }
+.q-card.submitted .option.is-correct:hover{ border-color:var(--green); background:var(--green-tint); }
+.q-card.submitted .option.is-wrong-pick{ border-color:var(--red); background:var(--red-tint); }
+.q-card.submitted .option.is-wrong-pick:hover{ border-color:var(--red); background:var(--red-tint); }
+.bubble{
+  flex:none;
+  width:26px; height:26px;
+  border-radius:50%;
+  border:1.5px solid var(--slate-soft);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-family:var(--font-mono);
+  font-size:12px;
+  font-weight:600;
+  color:var(--slate);
+  background:#fff;
+  transition:all .12s;
+}
+.option.selected .bubble{ border-color:var(--teal); background:var(--teal); color:#fff; }
+.option.is-correct .bubble{ border-color:var(--green); background:var(--green); color:#fff; }
+.option.is-wrong-pick .bubble{ border-color:var(--red); background:var(--red); color:#fff; }
+.option-text{ font-size:14.5px; line-height:1.5; padding-top:3px; color:var(--ink); }
+.option-tag{
+  margin-left:auto;
+  font-family:var(--font-mono);
+  font-size:9.5px;
+  letter-spacing:0.05em;
+  text-transform:uppercase;
+  padding:3px 7px;
+  border-radius:2px;
+  white-space:nowrap;
+  flex:none;
+  align-self:center;
+}
+.option-tag.correct-tag{ background:var(--green); color:#fff; }
+.option-tag.your-tag{ background:var(--red); color:#fff; }
+
+.q-check-row{
+  display:flex;
+  justify-content:flex-end;
+  margin-top:16px;
+}
+.btn-check{
+  background:var(--teal);
+  color:#fff;
+  border:none;
+  border-radius:3px;
+  padding:10px 18px;
+  font-size:13px;
+  font-weight:600;
+}
+.btn-check:hover{ background:var(--teal-dark); }
+.btn-check:disabled{ background:var(--slate-soft); cursor:not-allowed; }
+.q-card.submitted .q-check-row{ display:none; }
+
+.reveal{
+  display:none;
+  margin-top:22px;
+  padding-top:22px;
+  border-top:1px solid var(--line);
+}
+.q-card.submitted .reveal{ display:block; }
+.working-title{
+  font-family:var(--font-mono);
+  font-size:11px;
+  letter-spacing:0.1em;
+  text-transform:uppercase;
+  color:var(--teal-dark);
+  margin-bottom:16px;
+}
+.wk-block{ margin-bottom:20px; }
+.wk-block:last-child{ margin-bottom:0; }
+.wk-label{
+  font-family:var(--font-mono);
+  font-size:10.5px;
+  letter-spacing:0.08em;
+  text-transform:uppercase;
+  color:var(--slate);
+  font-weight:600;
+  margin-bottom:9px;
+}
+.wk-given-list{ margin:0; padding:0; list-style:none; }
+.wk-given-list li{
+  font-size:13.5px;
+  line-height:1.6;
+  color:var(--ink);
+  padding-left:16px;
+  position:relative;
+  margin-bottom:5px;
+}
+.wk-given-list li::before{ content:"\2022"; position:absolute; left:0; color:var(--teal); font-weight:700; }
+.wk-given-list li:last-child{ margin-bottom:0; }
+.wk-find{
+  font-size:13.5px;
+  line-height:1.6;
+  color:var(--ink);
+  background:var(--teal-tint);
+  border-radius:3px;
+  padding:11px 15px;
+}
+.wk-steps{ display:flex; flex-direction:column; gap:18px; }
+.wk-step-label{
+  display:flex;
+  align-items:flex-start;
+  gap:10px;
+  font-size:12.5px;
+  color:var(--ink);
+  font-weight:500;
+  line-height:1.5;
+  margin-bottom:9px;
+}
+.wk-step-num{
+  flex:none;
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  width:19px;
+  height:19px;
+  border-radius:50%;
+  background:var(--ink);
+  color:#fff;
+  font-family:var(--font-mono);
+  font-size:9.5px;
+  margin-top:1px;
+}
+.wk-step-math{
+  font-family:var(--font-mono);
+  font-size:12.5px;
+  color:var(--ink);
+  background:var(--paper-dim);
+  border:1px solid var(--line);
+  border-radius:3px;
+  padding:13px 15px;
+  margin-left:29px;
+}
+.wk-math-line{ line-height:1.85; white-space:pre-wrap; }
+.wk-math-line:not(:last-child){ border-bottom:1px dashed var(--line); padding-bottom:5px; margin-bottom:5px; }
+.wk-note{
+  font-size:12.5px;
+  color:#8A5115;
+  background:var(--amber-tint);
+  border-radius:3px;
+  padding:11px 15px;
+  margin-top:18px;
+  line-height:1.6;
+}
+.wk-answer{
+  font-family:var(--font-mono);
+  font-size:12.5px;
+  font-weight:600;
+  color:#1F6B41;
+  background:var(--green-tint);
+  border-radius:3px;
+  padding:11px 15px;
+  margin-top:12px;
+}
+
+@media (max-width:520px){
+  .ticket-head, .ticket-body{ padding-left:22px; padding-right:22px; }
+  .menu-bar, .practice-bar{ padding:14px 18px; }
+  .q-card{ padding:20px 18px; }
+  .chapter-card{ flex-wrap:wrap; }
+  .chapter-meta{ width:100%; text-align:left; margin-top:4px; }
+  .wk-step-math{ margin-left:0; }
+}
+</style>
+</head>
+<body>
+
+<div id="screen-login" class="screen active">
+  <div class="ticket">
+    <div class="ticket-head">
+      <p class="ticket-eyebrow" id="loginEyebrow">Practice questions</p>
+      <h1 class="ticket-title" id="loginTitle">Exam FM</h1>
+      <p class="ticket-sub" id="loginSub">Practice by chapter</p>
+    </div>
+    <div class="ticket-perf"></div>
+    <div class="ticket-body">
+      <div class="field">
+        <label for="inputAccessId">Access ID</label>
+        <input id="inputAccessId" type="text" autocomplete="off" placeholder="Enter your access ID">
+      </div>
+      <div class="field">
+        <label for="inputPassword">Password</label>
+        <input id="inputPassword" type="password" autocomplete="off" placeholder="Enter your password">
+      </div>
+      <button class="btn btn-primary" id="btnLogin">Enter practice room</button>
+      <div class="login-error" id="loginError"></div>
+    </div>
+  </div>
+  <div class="login-footer">
+    <p id="loginFooterCredit">Practice questions by Raymond Goh</p>
+    <a class="btn-tutor" id="loginTutorBtn" href="#" target="_blank" rel="noopener">Need 1-on-1 tutoring? \u2192</a>
+  </div>
+</div>
+
+<div id="screen-chapters" class="screen">
+  <div class="menu-bar">
+    <p class="menu-bar-eyebrow" id="chaptersEyebrow">Exam FM \u00b7 Practice by chapter</p>
+    <h1 class="menu-bar-title">Choose a chapter</h1>
+  </div>
+  <div class="menu-main" id="chaptersMain"></div>
+</div>
+
+<div id="screen-practice" class="screen">
+  <div class="practice-bar">
+    <div class="practice-bar-left">
+      <button class="practice-bar-back" id="btnBackToChapters">\u2190 All chapters</button>
+      <div class="practice-bar-title" id="practiceBarTitle">Chapter</div>
+      <div class="practice-bar-sub" id="practiceBarSub"></div>
+    </div>
+    <div class="practice-bar-right">
+      <span class="score-pill" id="scorePill">0 / 0 answered</span>
+      <button class="btn btn-ghost btn-reset" id="btnResetProgress">Reset progress</button>
+    </div>
+  </div>
+  <div class="practice-main" id="practiceMain"></div>
+</div>
+
+<script>
+(function(){
+  var CFG = window.PRACTICE_CONFIG;
+  var STORAGE_KEY = "practiceProgress_examFM_v1";
+  var currentChapter = null;
+
+  function escapeHtml(s){
+    return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+  }
+  function letterFor(i){ return String.fromCharCode(65+i); }
+  function showScreen(id){
+    document.querySelectorAll('.screen').forEach(function(el){ el.classList.remove('active'); });
+    document.getElementById(id).classList.add('active');
+  }
+  function allChapters(){
+    var list = [];
+    CFG.syllabusGroups.forEach(function(g){ g.chapters.forEach(function(c){ list.push(c); }); });
+    return list;
+  }
+  function findChapter(id){
+    var found = null;
+    allChapters().forEach(function(c){ if(c.id === id) found = c; });
+    return found;
+  }
+
+  function loadProgress(){
+    try{ return JSON.parse(localStorage.getItem(STORAGE_KEY)) || {}; }
+    catch(e){ return {}; }
+  }
+  function saveProgress(all){
+    try{ localStorage.setItem(STORAGE_KEY, JSON.stringify(all)); }
+    catch(e){}
+  }
+  function getChapterProgress(chapterId){
+    var all = loadProgress();
+    return all[chapterId] || {};
+  }
+  function saveAnswer(chapterId, qIndex, optionIndex){
+    var all = loadProgress();
+    if(!all[chapterId]) all[chapterId] = {};
+    all[chapterId][qIndex] = optionIndex;
+    saveProgress(all);
+  }
+  function clearChapterProgress(chapterId){
+    var all = loadProgress();
+    delete all[chapterId];
+    saveProgress(all);
+  }
+
+  function initLoginMeta(){
+    document.getElementById('loginEyebrow').textContent = CFG.brandEyebrow;
+    document.getElementById('loginTitle').textContent = CFG.examTitle;
+    document.getElementById('loginSub').textContent = CFG.examSubtitle;
+    document.getElementById('loginFooterCredit').textContent = "Practice questions by " + CFG.instructorName;
+    var tutorBtn = document.getElementById('loginTutorBtn');
+    tutorBtn.href = CFG.tutoringUrl;
+    tutorBtn.textContent = "Need 1-on-1 tutoring? \u2192";
+    document.getElementById('chaptersEyebrow').textContent = CFG.examTitle + " \u00b7 Practice by chapter";
+  }
+
+  function showLoginError(msg){
+    var el = document.getElementById('loginError');
+    el.textContent = msg;
+    el.classList.add('show');
+  }
+  function clearLoginError(){
+    document.getElementById('loginError').classList.remove('show');
+  }
+
+  document.getElementById('btnLogin').addEventListener('click', function(){
+    clearLoginError();
+    var accessId = document.getElementById('inputAccessId').value.trim();
+    var password = document.getElementById('inputPassword').value;
+    if(!accessId || !password){
+      showLoginError('Enter both your access ID and password.');
+      return;
+    }
+    if(accessId !== CFG.accessId || password !== CFG.accessPassword){
+      showLoginError('That access ID or password is not recognized.');
+      return;
+    }
+    renderChapterMenu();
+    showScreen('screen-chapters');
+  });
+
+  function renderChapterMenu(){
+    var main = document.getElementById('chaptersMain');
+    var html = '';
+    CFG.syllabusGroups.forEach(function(group){
+      html += '<div class="syllabus-group">';
+      html += '<div class="syllabus-group-head">' +
+        '<div class="syllabus-group-title">' + escapeHtml(group.topic) + '</div>' +
+        '<div class="syllabus-group-weight">' + escapeHtml(group.weight) + ' of exam</div>' +
+      '</div>';
+      group.chapters.forEach(function(ch){
+        var cls = 'chapter-card ' + (ch.available ? 'available' : 'locked');
+        var meta = ch.available ? (ch.questions.length + ' questions') : 'Coming soon';
+        if(ch.available){
+          var prog = getChapterProgress(ch.id);
+          var answeredCount = Object.keys(prog).length;
+          if(answeredCount > 0){
+            meta = answeredCount + ' / ' + ch.questions.length + ' answered';
+          }
+        }
+        html += '<div class="' + cls + '" data-chapter-id="' + ch.id + '">' +
+          '<div class="chapter-code">' + escapeHtml(ch.code) + '</div>' +
+          '<div class="chapter-info">' +
+            '<p class="chapter-title">' + escapeHtml(ch.title) + '</p>' +
+            '<p class="chapter-desc">' + escapeHtml(ch.description) + '</p>' +
+          '</div>' +
+          '<div class="chapter-meta">' + meta + '</div>' +
+        '</div>';
+      });
+      html += '</div>';
+    });
+    main.innerHTML = html;
+    main.querySelectorAll('.chapter-card.available').forEach(function(card){
+      card.addEventListener('click', function(){
+        openChapter(card.getAttribute('data-chapter-id'));
+      });
+    });
+  }
+
+  document.getElementById('btnBackToChapters').addEventListener('click', function(){
+    renderChapterMenu();
+    showScreen('screen-chapters');
+  });
+
+  function openChapter(id){
+    var ch = findChapter(id);
+    if(!ch || !ch.available) return;
+    currentChapter = ch;
+    document.getElementById('practiceBarTitle').textContent = ch.code + ' \u2014 ' + ch.title;
+    document.getElementById('practiceBarSub').textContent = ch.questions.length + ' questions \u00b7 check each one as you go';
+    renderPracticeQuestions();
+    showScreen('screen-practice');
+    window.scrollTo(0,0);
+  }
+
+  function updateScorePill(){
+    var prog = getChapterProgress(currentChapter.id);
+    var answeredCount = 0, correctCount = 0;
+    currentChapter.questions.forEach(function(q, i){
+      if(prog.hasOwnProperty(i)){
+        answeredCount++;
+        if(prog[i] === q.correct) correctCount++;
+      }
+    });
+    document.getElementById('scorePill').textContent =
+      answeredCount + ' / ' + currentChapter.questions.length + ' answered \u00b7 ' + correctCount + ' correct';
+  }
+
+  function buildWorkingHtml(exp){
+    if(!exp) return '';
+    var html = '';
+    if(exp.given && exp.given.length){
+      html += '<div class="wk-block"><div class="wk-label">What we know</div><ul class="wk-given-list">';
+      exp.given.forEach(function(g){ html += '<li>' + g + '</li>'; });
+      html += '</ul></div>';
+    }
+    if(exp.find){
+      html += '<div class="wk-block"><div class="wk-label">What we want to find</div><div class="wk-find">' + exp.find + '</div></div>';
+    }
+    if(exp.steps && exp.steps.length){
+      html += '<div class="wk-block"><div class="wk-label">Solution</div><div class="wk-steps">';
+      exp.steps.forEach(function(step, i){
+        html += '<div class="wk-step">';
+        html += '<div class="wk-step-label"><span class="wk-step-num">' + (i+1) + '</span><span>' + step.label + '</span></div>';
+        html += '<div class="wk-step-math">';
+        step.lines.forEach(function(line){ html += '<div class="wk-math-line">' + line + '</div>'; });
+        html += '</div></div>';
+      });
+      html += '</div></div>';
+    }
+    if(exp.note){ html += '<div class="wk-note">' + exp.note + '</div>'; }
+    if(exp.answer){ html += '<div class="wk-answer">' + exp.answer + '</div>'; }
+    return html;
+  }
+
+  function renderPracticeQuestions(){
+    var main = document.getElementById('practiceMain');
+    var prog = getChapterProgress(currentChapter.id);
+    var html = '';
+    currentChapter.questions.forEach(function(q, i){
+      html += '<div class="q-card" id="qcard-' + i + '" data-idx="' + i + '">';
+      html += '<div class="q-eyebrow">' +
+        '<span class="q-eyebrow-num">Q' + (i+1) + ' \u00b7 ' + escapeHtml(q.tier) + '</span>' +
+        '<span class="q-eyebrow-source">' + escapeHtml(q.source) + '</span>' +
+      '</div>';
+      html += '<p class="q-text">' + escapeHtml(q.text) + '</p>';
+      html += '<div class="options">';
+      q.options.forEach(function(opt, oi){
+        html += '<div class="option" data-q="' + i + '" data-opt="' + oi + '">' +
+          '<div class="bubble">' + letterFor(oi) + '</div>' +
+          '<div class="option-text">' + escapeHtml(opt) + '</div>' +
+        '</div>';
+      });
+      html += '</div>';
+      html += '<div class="q-check-row"><button class="btn-check" id="check-' + i + '" disabled>Check answer</button></div>';
+      html += '<div class="reveal" id="reveal-' + i + '"></div>';
+      html += '</div>';
+    });
+    main.innerHTML = html;
+    updateScorePill();
+
+    currentChapter.questions.forEach(function(q, i){
+      if(prog.hasOwnProperty(i)){
+        revealQuestion(i, prog[i]);
+      }
+    });
+
+    main.querySelectorAll('.q-card:not(.submitted) .option').forEach(function(optEl){
+      optEl.addEventListener('click', function(){
+        var qi = parseInt(optEl.getAttribute('data-q'), 10);
+        var card = document.getElementById('qcard-' + qi);
+        if(card.classList.contains('submitted')) return;
+        card.querySelectorAll('.option').forEach(function(o){ o.classList.remove('selected'); });
+        optEl.classList.add('selected');
+        document.getElementById('check-' + qi).disabled = false;
+      });
+    });
+
+    main.querySelectorAll('.btn-check').forEach(function(btn){
+      btn.addEventListener('click', function(){
+        var qi = parseInt(btn.id.replace('check-', ''), 10);
+        var card = document.getElementById('qcard-' + qi);
+        var selectedEl = card.querySelector('.option.selected');
+        if(!selectedEl) return;
+        var oi = parseInt(selectedEl.getAttribute('data-opt'), 10);
+        saveAnswer(currentChapter.id, qi, oi);
+        revealQuestion(qi, oi);
+        updateScorePill();
+      });
+    });
+  }
+
+  function revealQuestion(qi, given){
+    var q = currentChapter.questions[qi];
+    var card = document.getElementById('qcard-' + qi);
+    card.classList.add('submitted');
+    card.querySelectorAll('.option').forEach(function(optEl){
+      var oi = parseInt(optEl.getAttribute('data-opt'), 10);
+      var tag = '';
+      if(oi === q.correct){
+        optEl.classList.add('is-correct');
+        tag = '<span class="option-tag correct-tag">Correct</span>';
+      } else if(given === oi){
+        optEl.classList.add('is-wrong-pick');
+        tag = '<span class="option-tag your-tag">Your answer</span>';
+      }
+      if(given === oi){ optEl.classList.add('selected'); }
+      var existing = optEl.querySelector('.option-tag');
+      if(existing) existing.remove();
+      if(tag){ optEl.insertAdjacentHTML('beforeend', tag); }
+    });
+    var reveal = document.getElementById('reveal-' + qi);
+    reveal.innerHTML = '<div class="working-title">Full solution</div>' + buildWorkingHtml(q.explanation);
+  }
+
+  document.getElementById('btnResetProgress').addEventListener('click', function(){
+    if(!currentChapter) return;
+    var ok = window.confirm('Reset all your progress for "' + currentChapter.title + '"? This cannot be undone.');
+    if(!ok) return;
+    clearChapterProgress(currentChapter.id);
+    renderPracticeQuestions();
+    window.scrollTo(0,0);
+  });
+
+  initLoginMeta();
+})();
+</script>
+</body>
+</html>
